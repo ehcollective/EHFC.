@@ -80,7 +80,7 @@
       rel="stylesheet"
     />
     <style id="page-skin-1" type="text/css">
-      <!--
+      
       *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
       body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #FDFBF7; color: #2C3531; overflow-x: hidden; line-height: 1.6; }
       :root {
@@ -169,7 +169,7 @@
       .nav-container { max-width: 1300px; margin: 0 auto; padding: 1rem 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; position: relative; }
       .logo { display: flex; align-items: center; gap: 12px; }
       .logo-img-wrap { width: 100px; height: 46px; display: flex; align-items: center; justify-content: center; }
-      .logo-img-wrap img { width: 100%; height: 100%; object-fit: contain; }
+      .logo-img-wrap img { width: 100%; height: 100%; object-fit: contain;}
       .logo-text { font-family: 'Ariel', serif; font-size: 0.8rem; font-weight: 800; color: var(--forest-green); letter-spacing: -0.2px; line-height: 1.15; }
       .logo-text small { display: block; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.6rem; font-weight: 700; letter-spacing: 2px; color: var(--sun-orange); text-transform: uppercase; margin-top: 2px; }
       .nav-menu { display: flex; align-items: center; gap: .7rem; list-style: none; }
@@ -443,7 +443,7 @@
       /* 3-Column Layout: Brand | Map | Subscribe */
       grid-template-columns: 1.2fr 0.8fr 1fr;
       gap: 3rem;
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
       align-items: start;
       }
       /* --- COLUMN 1: LOGO & BRAND --- */
@@ -644,7 +644,7 @@
       .gallery-masonry { columns: 1; column-gap: 0; }
       .contact-section { padding: 2rem 1rem; }
       .form-group-row { grid-template-columns: 1fr; }
-      .social-links-row { justify-content: center; }
+      .social-links-row { justify-content: left; }
       .footer-top-grid { text-align: center; }
       .footer-logo-wrap { margin: 0 auto; }
       .footer-map { margin: 1rem auto 0; }
@@ -660,11 +660,15 @@
       .hero-sub { font-size: 0.96rem; }
       .hero-section { padding-top: 5.5rem; }
       .nav-container { padding: 1rem; }
-      .logo-text { font-size: 0.75rem; }
+      .logo-text { font-size: 0.75rem;
+       margin-left: -2.5rem;}
       .logo-text small { font-size: 0.55rem; letter-spacing: 1.5px; }
+      .logo-img-wrap img { margin-left: -2.5rem; }
+      .footer-top-grid { gap: 1rem; }
+      footer { padding-top: 1rem; }
       }
 
-      -->
+      
     </style>
     <meta
       name="google-adsense-platform-account"
@@ -726,7 +730,16 @@
           <li><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
         <a class="nav-cta" href="#contact">Partner With Us</a>
-        <div class="menu-toggle" id="mobileMenuBtn" aria-controls="mainNav" aria-label="Toggle navigation" aria-expanded="false" role="button" tabindex="0" onclick="toggleMobileMenu()">
+        <div
+          class="menu-toggle"
+          id="mobileMenuBtn"
+          aria-controls="mainNav"
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+          role="button"
+          tabindex="0"
+          onclick="toggleMobileMenu()"
+        >
           <i class="fa-solid fa-bars" aria-hidden="true"></i>
           <i class="fa-solid fa-xmark" aria-hidden="true"></i>
         </div>
@@ -1004,29 +1017,25 @@
       <div class="section-title-wrap">
         <span class="section-subtitle">How We Work</span>
         <h2 class="section-main-title">Our Six &#8216;E&#8217; Framework</h2>
-        
       </div>
       <div class="sixe-flow">
         <div class="sixe-item glass-dark">
-          
           <h4>Engage</h4>
           <p>
             Build meaningful relationships with communities, institutions, and
             partners through trust, participation, and collaboration.
           </p>
         </div>
-        
+
         <div class="sixe-item glass-dark">
-          
           <h4>Explore</h4>
           <p>
             Understand local needs, indigenous knowledge, opportunities, and
             challenges through research, dialogue, and field engagement.
           </p>
         </div>
-       
+
         <div class="sixe-item glass-dark">
-          
           <h4>Enrich</h4>
           <p>
             Strengthen knowledge, skills, livelihoods, and natural resources
@@ -1036,25 +1045,22 @@
       </div>
       <div class="sixe-flow">
         <div class="sixe-item glass-dark">
-          
           <h4>Execute</h4>
           <p>
             Implement impactful, community-led initiatives that promote
             sustainable development and environmental stewardship.
           </p>
         </div>
-        
+
         <div class="sixe-item glass-dark">
-         
           <h4>Evaluate</h4>
           <p>
             Measure outcomes, assess impact, and learn from experience to ensure
             transparency, accountability, and continuous improvement.
           </p>
         </div>
-        
+
         <div class="sixe-item glass-dark">
-          
           <h4>Evolve</h4>
           <p>
             Scale successful models, embrace innovation, and adapt to emerging
@@ -1085,7 +1091,10 @@
         <div class="sdg-group">
           <div class="sdg-group-header">
             <span class="sdg-group-label">Priority Goals</span>
-            <p>These goals are central to our mission and guide our core program work.</p>
+            <p>
+              These goals are central to our mission and guide our core program
+              work.
+            </p>
           </div>
           <div class="sdg-icon-grid">
             <div class="sdg-icon-card">
@@ -1117,7 +1126,10 @@
         <div class="sdg-group">
           <div class="sdg-group-header">
             <span class="sdg-group-label">Supporting Goals</span>
-            <p>These goals support our broader systems change work and reinforce long-term impact.</p>
+            <p>
+              These goals support our broader systems change work and reinforce
+              long-term impact.
+            </p>
           </div>
           <div class="sdg-icon-grid">
             <div class="sdg-icon-card">
@@ -1501,9 +1513,10 @@
         </div>
         <div class="contact-form-panel glass">
           <!-- Replace YOUR_FORM_ID with your real Formspree form ID -->
-          <form action="https://formsubmit.co/easternhimalayascollective@gmail.com" method="POST">
-           
-            
+          <form
+            action="https://formsubmit.co/easternhimalayascollective@gmail.com"
+            method="POST"
+          >
             <div class="form-group-row">
               <div class="form-control-wrap">
                 <label>Full Name</label
@@ -1564,7 +1577,6 @@
             sustainability across the Eastern Himalayan landscape of Northeast
             India.
           </p>
-          
         </div>
         <div></div>
         <div>
@@ -1577,7 +1589,6 @@
             class="newsletter-form-field"
             method="POST"
           >
-            
             <input
               class="newsletter-input"
               name="email"
@@ -1590,72 +1601,72 @@
         </div>
       </div>
       <div class="footer-bottom-bar">
-        <div>
-          &#169; 2026 Eastern Himalayas Collective Foundation. All Rights
-          Reserved
-        </div>
+        <div>2026 Eastern Himalayas Collective Foundation</div>
+        <div>All Rights Reserved</div>
         <div>CIN-U94990AR2026NPL014435</div>
-        <div style="display: flex; gap: 1.5rem">
-          <a href="#">Privacy</a>
-          <a href="#contact">Contact</a>
-        </div>
+        
       </div>
     </footer>
     <script type="text/javascript">
       //<![CDATA[
       function toggleMobileMenu() {
-        const menuBtn = document.getElementById('mobileMenuBtn');
-        const menu = document.querySelector('.nav-menu');
+        const menuBtn = document.getElementById("mobileMenuBtn");
+        const menu = document.querySelector(".nav-menu");
         if (!menuBtn || !menu) return;
-        const isOpen = menu.classList.toggle('open');
-        menuBtn.classList.toggle('open', isOpen);
-        menuBtn.setAttribute('aria-expanded', String(isOpen));
-        document.body.classList.toggle('mobile-menu-open', isOpen);
+        const isOpen = menu.classList.toggle("open");
+        menuBtn.classList.toggle("open", isOpen);
+        menuBtn.setAttribute("aria-expanded", String(isOpen));
+        document.body.classList.toggle("mobile-menu-open", isOpen);
       }
       function closeMobileMenu() {
-        const menuBtn = document.getElementById('mobileMenuBtn');
-        const menu = document.querySelector('.nav-menu');
+        const menuBtn = document.getElementById("mobileMenuBtn");
+        const menu = document.querySelector(".nav-menu");
         if (!menuBtn || !menu) return;
-        menu.classList.remove('open');
-        menuBtn.classList.remove('open');
-        menuBtn.setAttribute('aria-expanded', 'false');
-        document.body.classList.remove('mobile-menu-open');
+        menu.classList.remove("open");
+        menuBtn.classList.remove("open");
+        menuBtn.setAttribute("aria-expanded", "false");
+        document.body.classList.remove("mobile-menu-open");
       }
       function initMobileMenu() {
-        const header = document.getElementById('mainHeader');
+        const header = document.getElementById("mainHeader");
         if (header) {
-          window.addEventListener('scroll', function() {
-            header.style.boxShadow = window.scrollY > 50 ? '0 4px 30px rgba(0, 0, 0, 0.06)' : 'none';
+          window.addEventListener("scroll", function () {
+            header.style.boxShadow =
+              window.scrollY > 50 ? "0 4px 30px rgba(0, 0, 0, 0.06)" : "none";
           });
         }
-        const menuBtn = document.getElementById('mobileMenuBtn');
-        const menu = document.querySelector('.nav-menu');
+        const menuBtn = document.getElementById("mobileMenuBtn");
+        const menu = document.querySelector(".nav-menu");
         if (menuBtn && menu) {
-          menuBtn.addEventListener('keydown', function(event) {
-            if (event.key === 'Enter' || event.key === ' ') {
+          menuBtn.addEventListener("keydown", function (event) {
+            if (event.key === "Enter" || event.key === " ") {
               event.preventDefault();
               toggleMobileMenu();
             }
           });
-          menu.querySelectorAll('a').forEach(function(link) {
-            link.addEventListener('click', function() {
+          menu.querySelectorAll("a").forEach(function (link) {
+            link.addEventListener("click", function () {
               closeMobileMenu();
             });
           });
-          window.addEventListener('resize', function() {
-            if (window.innerWidth > 768 && menu.classList.contains('open')) {
+          window.addEventListener("resize", function () {
+            if (window.innerWidth > 768 && menu.classList.contains("open")) {
               closeMobileMenu();
             }
           });
-          document.addEventListener('click', function(event) {
-            if (!menu.contains(event.target) && !menuBtn.contains(event.target) && menu.classList.contains('open')) {
+          document.addEventListener("click", function (event) {
+            if (
+              !menu.contains(event.target) &&
+              !menuBtn.contains(event.target) &&
+              menu.classList.contains("open")
+            ) {
               closeMobileMenu();
             }
           });
         }
       }
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initMobileMenu);
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initMobileMenu);
       } else {
         initMobileMenu();
       }
