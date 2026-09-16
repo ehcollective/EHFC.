@@ -72,7 +72,7 @@
       property="og:description"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght=0,400;0,600;0,700;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
       rel="stylesheet"
     />
     <link
@@ -97,10 +97,10 @@
       .Navbar { display: none !important; }
       .clear { clear: both; }
       .widget-content { margin: 0; padding: 0; }
-      /* Glass / mirror surface, used across cards for the Balipara-inspired frosted look */
+
       .glass { background: var(--glass-bg); backdrop-filter: blur(18px) saturate(140%); -webkit-backdrop-filter: blur(18px) saturate(140%); border: 1px solid var(--glass-border); box-shadow: 0 20px 50px rgba(30,63,32,0.08), inset 0 1px 0 rgba(255,255,255,0.6); }
       .glass-dark { background: var(--glass-bg-dark); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); border: 1px solid var(--glass-border-dark); box-shadow: 0 20px 50px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.06); }
-      /* Ambient forest atmosphere &#8212; Drifting mist and enhanced floating leaves. Rain cancelled. */
+
       .ehc-atmosphere {
       position: fixed;
       inset: 0;
@@ -110,11 +110,11 @@
       width: 100%;
       height: 100%;
       }
-      /* 1. CANCELLED: Horizontal Rain Lines */
+
       .ehc-rain {
-      display: none !important; /* Rain lines removed per request */
+      display: none !important;
       }
-      /* 2. MIST SYSTEM: Drifting mist for environmental depth [1] */
+
       .ehc-mist {
       position: absolute;
       width: 160%;
@@ -126,32 +126,33 @@
       .ehc-mist.m1 { top: 12%; animation-duration: 48s; }
       .ehc-mist.m2 { top: 46%; animation-duration: 60s; animation-direction: reverse; opacity: 0.7; }
       .ehc-mist.m3 { top: 78%; animation-duration: 54s; }
+
       @keyframes ehcMistDrift {
       0% { transform: translateX(-10%); }
       100% { transform: translateX(10%); }
       }
-      /* 3. ENHANCED LEAF SYSTEM: Increased size, opacity, and motion for more activity */
+
       .ehc-leaf {
       position: absolute;
       top: -40px;
-      font-size: 1.4rem; /* Increased from 1.1rem for better visibility */
-      color: rgba(122,92,67,0.45); /* Increased opacity for prominence */
+      font-size: 1.4rem;
+      color: rgba(122,92,67,0.45);
       animation: ehcLeafFall linear infinite;
       }
+
       @keyframes ehcLeafFall {
       0% {
       transform: translateY(-5vh) translateX(0) rotate(0deg);
       opacity: 0;
       }
-      10% { opacity: 0.7; } /* Faster fade-in */
+      10% { opacity: 0.7; }
       90% { opacity: 0.7; }
       100% {
-      /* Increased drift (120px) and rotation (360deg) for more "leaves falling" effect */
       transform: translateY(105vh) translateX(120px) rotate(360deg);
       opacity: 0;
       }
       }
-      /* 4. ORGANIC SECTION DIVIDERS: Soft waves for section transitions [2] */
+
       .ehc-wave-divider {
       display: block;
       width: 100%;
@@ -161,10 +162,11 @@
       .ehc-wave-divider path { fill: var(--soft-beige); }
       .ehc-wave-divider.into-dark path { fill: #12281A; }
       .ehc-wave-divider.into-cream path { fill: #FDFBF7; }
-      /* ACCESSIBILITY: Pauses for reduced-motion [1] */
+
       @media (prefers-reduced-motion: reduce) {
       .ehc-atmosphere { display: none; }
       }
+
       header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background: rgba(253, 251, 247, 0.72); backdrop-filter: blur(16px) saturate(160%); -webkit-backdrop-filter: blur(16px) saturate(160%); border-bottom: 1px solid rgba(61, 90, 70, 0.1); transition: var(--transition); overflow: visible; }
       .nav-container { max-width: 1300px; margin: 0 auto; padding: 1rem 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; position: relative; }
       .logo { display: flex; align-items: center; gap: 12px; }
@@ -180,11 +182,13 @@
       .nav-cta { background: var(--forest-green); color: var(--ivory-white); padding: 0.7rem 1.5rem; border-radius: 30px; font-weight: 600; font-size: 0.9rem; box-shadow: 0 4px 15px rgba(30, 63, 32, 0.2); white-space: nowrap; }
       .nav-cta:hover { background: var(--sun-orange); transform: translateY(-2px); color: #fff; }
       .menu-toggle { display: none; font-size: 1.6rem; color: var(--forest-green); cursor: pointer; background:none; border:none; z-index: 1002; }
+
       .section-padding { padding: 6rem 1.5rem; max-width: 1300px; margin: 0 auto; }
       .section-title-wrap { text-align: center; margin-bottom: 4rem; }
       .section-subtitle { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--sun-orange); margin-bottom: 0.5rem; display: block; }
       .section-main-title { font-size: 2.5rem; color: var(--forest-green); margin-bottom: 1rem; }
       .section-desc { max-width: 620px; margin: 0 auto; color: var(--text-muted); font-size: 1.05rem; }
+
       .hero-section { position: relative; min-height: 94vh; display: flex; align-items: center; padding: 8rem 1.5rem 4rem; color: var(--ivory-white); overflow: hidden; background: #10241a; }
       .hero-slides { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; overflow: hidden; }
       .hero-slide { position: absolute; inset: 0; width: 100%; height: 100%; background-size: cover; background-position: center; opacity: 0; animation: heroFade 32s infinite; }
@@ -197,12 +201,15 @@
       .hero-slide:nth-child(3) span { animation-delay: 16s; }
       .hero-slide:nth-child(4) { animation-delay: 24s; }
       .hero-slide:nth-child(4) span { animation-delay: 24s; }
+
       @keyframes heroFade {
       0% { opacity: 0; } 3% { opacity: 1; } 22% { opacity: 1; } 27% { opacity: 0; } 100% { opacity: 0; }
       }
+
       @keyframes heroZoom {
       0% { transform: scale(1); } 100% { transform: scale(1.12); }
       }
+
       .hero-overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(rgba(12,26,15,0.46), rgba(12,20,14,0.55)); }
       .hero-section::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 140px; background: linear-gradient(to top, #FDFBF7 0%, rgba(253,251,247,0.0) 100%); backdrop-filter: blur(1px); pointer-events: none; z-index: 1; }
       .hero-container { max-width: 1200px; margin: 0 auto; width: 100%; position: relative; z-index: 2; }
@@ -217,6 +224,7 @@
       .btn-primary:hover { background: #B23A17; transform: translateY(-3px); }
       .btn-secondary { background: rgba(255,255,255,0.08); backdrop-filter: blur(8px); color: #fff; font-weight: 600; padding: 0.95rem 2rem; border-radius: var(--radius-md); display: inline-flex; align-items: center; gap: 10px; border: 1px solid rgba(255,255,255,0.35); }
       .btn-secondary:hover { background: rgba(255,255,255,0.16); border-color: #fff; transform: translateY(-3px); }
+
       .about-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: center; }
       .about-content-left { display: flex; flex-direction: column; gap: 1.5rem; }
       .pillar-quote-badge { display: inline-flex; align-items: center; gap: 10px; font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.05rem; color: var(--forest-green); padding: 1rem 1.4rem; border-radius: var(--radius-md); border-left: 3px solid var(--sun-orange); }
@@ -238,6 +246,7 @@
       .footer-map { opacity: 0.55; max-width: 130px; margin-top: 0.8rem; }
       .contact-map-wrap { text-align: center; margin-top: 0.5rem; }
       .contact-map-wrap img { max-width: 220px; margin: 0 auto; opacity: 0.9; }
+
       .sdg-section { background: var(--soft-beige); text-align: center; }
       .sdg-group-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 1200px; margin: 0 auto; }
       .sdg-group { background: rgba(255,255,255,0.82); border: 1px solid rgba(61,90,70,0.12); border-radius: var(--radius-lg); padding: 1.5rem; box-shadow: 0 10px 30px rgba(30,63,32,0.06); }
@@ -249,10 +258,12 @@
       .sdg-icon-card img { width: 100%; height: 100%; display: block; }
       .sdg-icon-card:hover { transform: translateY(-8px) scale(1.06); box-shadow: 0 20px 40px rgba(30,63,32,0.22); }
       .sdg-footnote { max-width: 720px; margin: 2.8rem auto 0; text-align: center; color: var(--text-muted); font-size: 0.98rem; line-height: 1.7; }
+
       @media(max-width: 900px) {
       .sdg-group-wrap { grid-template-columns: 1fr; }
       .sdg-group { padding: 1.25rem; }
       }
+
       .programs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem; }
       .program-card { border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid rgba(61,90,70,0.08); transition: var(--transition); background: #fff; }
       .program-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(30,63,32,0.12); }
@@ -263,7 +274,7 @@
       .program-icon-bar { color: var(--sun-orange); font-size: 1.2rem; }
       .program-card-title { font-size: 1.25rem; color: var(--forest-green); }
       .program-card-desc { font-size: 0.92rem; color: var(--text-muted); }
-      /* Six 'E' framework &#8212; deliberately sequential, so numbering + arrows encode real process order */
+
       .sixe-section { background: linear-gradient(180deg, #12281A 0%, #0E2010 100%); color: #fff; position: relative; }
       .sixe-section .section-main-title { color: #fff; }
       .sixe-section .section-desc { color: rgba(253,251,247,0.75); }
@@ -273,13 +284,14 @@
       .sixe-item h4 { color: #fff; font-size: 1.3rem; margin-bottom: 0.7rem; }
       .sixe-item p { font-size: 0.85rem; color: rgba(253,251,247,0.72); }
       .sixe-arrow { align-self: center; color: var(--sun-orange); font-size: 1.1rem; opacity: 0.6; padding: 0 0.3rem; }
+
       .impact-section { background: linear-gradient(rgba(30,63,32,0.92), rgba(30,63,32,0.94)), url('https://images.unsplash.com/photo-1628070018796-a9f4e2dd482a?auto=format&fit=crop&q=80&w=1200') no-repeat center center/cover; color: #fff; }
       .impact-section .section-main-title { color: #fff; }
       .impact-section .section-subtitle { color: #E2A088; }
       .launch-note { max-width: 720px; margin: 0 auto; text-align: center; padding: 2.6rem; border-radius: var(--radius-lg); }
       .launch-note p { font-size: 1.05rem; line-height: 1.7; color: rgba(253,251,247,0.9); }
       .launch-note .eyebrow-white { font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; color: #E2A088; font-weight: 700; margin-bottom: 1rem; display:block; }
-      /* Partner categories */
+
       .partner-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.4rem; }
       .partner-card { padding: 1.7rem; border-radius: var(--radius-md); display: flex; flex-direction: column; gap: 0.7rem; transition: var(--transition); }
       .partner-card:hover { transform: translateY(-5px); }
@@ -287,6 +299,199 @@
       .partner-card h4 { font-size: 1rem; color: var(--forest-green); }
       .partner-card p { font-size: 0.86rem; color: var(--text-muted); }
       .partner-cta-row { text-align: center; margin-top: 3rem; }
+
+      /* =========================================================
+         MEET OUR TEAM
+         Added section only
+         ========================================================= */
+
+      .team-section {
+      background: #FDFBF7;
+      position: relative;
+      overflow: hidden;
+      }
+
+      .team-section .section-title-wrap {
+      margin-bottom: 2.8rem;
+      }
+
+      .team-slider-wrap {
+      position: relative;
+      width: 100%;
+      }
+
+      .team-slider {
+      display: flex;
+      gap: 1.5rem;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-behavior: smooth;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding: 0.5rem 0.3rem 1.5rem;
+      }
+
+      .team-slider::-webkit-scrollbar {
+      display: none;
+      }
+
+      .team-card {
+      flex: 0 0 calc(25% - 1.15rem);
+      min-width: 250px;
+      scroll-snap-align: start;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(61,90,70,0.12);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 12px 32px rgba(30,63,32,0.07);
+      transition: var(--transition);
+      }
+
+      .team-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 20px 42px rgba(30,63,32,0.13);
+      }
+
+      .team-photo-wrap {
+      width: 100%;
+      height: 290px;
+      overflow: hidden;
+      background: var(--soft-beige);
+      position: relative;
+      }
+
+      .team-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+      }
+
+      .team-card:hover .team-photo-wrap img {
+      transform: scale(1.04);
+      }
+
+      .team-card-body {
+      padding: 1.5rem 1.5rem 1.7rem;
+      text-align: left;
+      }
+
+      .team-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--forest-green);
+      margin-bottom: 0.25rem;
+      }
+
+      .team-role {
+      font-size: 0.75rem;
+      color: var(--sun-orange);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      display: block;
+      }
+
+      .team-intro {
+      font-size: 0.88rem;
+      line-height: 1.65;
+      color: var(--text-muted);
+      }
+
+      .team-scroll-btn {
+      position: absolute;
+      right: -12px;
+      top: 42%;
+      transform: translateY(-50%);
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.8);
+      background: rgba(253,251,247,0.94);
+      color: var(--forest-green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      cursor: pointer;
+      z-index: 5;
+      box-shadow: 0 10px 25px rgba(30,63,32,0.15);
+      transition: var(--transition);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      }
+
+      .team-scroll-btn:hover {
+      background: var(--forest-green);
+      color: #fff;
+      transform: translateY(-50%) translateX(3px);
+      }
+
+      .team-scroll-btn:active {
+      transform: translateY(-50%) scale(0.95);
+      }
+
+      .team-scroll-hint {
+      text-align: center;
+      margin-top: 0.3rem;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      }
+
+      @media(max-width: 1100px) {
+      .team-card {
+      flex: 0 0 calc(33.333% - 1rem);
+      }
+      }
+
+      @media(max-width: 800px) {
+      .team-card {
+      flex: 0 0 calc(50% - 0.75rem);
+      }
+      .team-photo-wrap {
+      height: 270px;
+      }
+      .team-scroll-btn {
+      right: 4px;
+      }
+      }
+
+      @media(max-width: 560px) {
+      .team-slider {
+      gap: 1rem;
+      padding-left: 0;
+      padding-right: 0.5rem;
+      }
+
+      .team-card {
+      flex: 0 0 82%;
+      min-width: 82%;
+      }
+
+      .team-photo-wrap {
+      height: 300px;
+      }
+
+      .team-card-body {
+      padding: 1.3rem;
+      }
+
+      .team-scroll-btn {
+      width: 46px;
+      height: 46px;
+      right: 2px;
+      top: 40%;
+      }
+
+      .team-scroll-hint {
+      margin-top: 0.5rem;
+      }
+      }
+
       .blog-section { background: #F4EFE6; }
       .blog-grid-container { max-width: 1300px; margin: 0 auto; }
       .Blog { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 2rem; width: 100% !important; }
@@ -302,6 +507,7 @@
       .blog-post-snippet { font-size: 0.92rem; color: var(--text-muted); margin-bottom: 1.4rem; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
       .blog-readmore-btn { font-size: 0.82rem; font-weight: 700; text-transform: uppercase; color: var(--forest-green); letter-spacing: 1px; display: inline-flex; align-items: center; gap: 6px; margin-top: auto; }
       .blog-readmore-btn:hover { color: var(--sun-orange); }
+
       .gallery-masonry { columns: 4 230px; column-gap: 1rem; }
       .gallery-item { position: relative; break-inside: avoid; margin-bottom: 1rem; border-radius: var(--radius-md); overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.03); cursor: pointer; }
       .gallery-item img { width: 100%; height: auto; transition: var(--transition); }
@@ -310,13 +516,22 @@
       .gallery-item:hover .gallery-overlay { opacity: 1; }
       .gallery-text { color: #fff; font-size: 1.02rem; font-family: 'Playfair Display', serif; }
       .gallery-text small { display: block; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.7rem; letter-spacing: 1.5px; text-transform: uppercase; color: #E2A088; margin-top: 4px; }
+
       .ehc-lightbox { display: none; position: fixed; inset: 0; background: rgba(10,20,12,0.92); z-index: 3000; align-items: center; justify-content: center; padding: 2rem; cursor: zoom-out; }
       .ehc-lightbox.active { display: flex; }
       .ehc-lightbox img { max-width: 92vw; max-height: 88vh; border-radius: 10px; box-shadow: 0 30px 60px rgba(0,0,0,0.5); }
-      @media(max-width: 900px) { .gallery-masonry { columns: 2 200px; } }
-      @media(max-width: 560px) { .gallery-masonry { columns: 1; } }
+
+      @media(max-width: 900px) {
+      .gallery-masonry { columns: 2 200px; }
+      }
+
+      @media(max-width: 560px) {
+      .gallery-masonry { columns: 1; }
+      }
+
       .region-strip { display: flex; align-items: center; gap: 0.7rem; padding: 1rem 1.4rem; border-radius: var(--radius-md); margin-top: 0.5rem; font-size: 0.88rem; color: var(--forest-green); font-weight: 600; }
       .region-strip i { color: var(--sun-orange); }
+
       .contact-section { position: relative; background: linear-gradient(rgba(253,251,247,0.93), rgba(253,251,247,0.93)), url('https://images.unsplash.com/photo-1638192431428-1d5d3c68d742?auto=format&fit=crop&q=80&w=1600') no-repeat center center/cover; border-radius: var(--radius-lg); }
       .contact-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 4rem; }
       .contact-info-panel { display: flex; flex-direction: column; gap: 1.8rem; }
@@ -335,28 +550,29 @@
       .form-input-element:focus { outline: none; border-color: var(--forest-green); box-shadow: 0 0 0 3px rgba(30,63,32,0.08); }
       .form-submit-btn { width: 100%; background: var(--forest-green); color: #fff; padding: 0.95rem; border: none; border-radius: var(--radius-md); font-weight: 600; font-size: 0.98rem; cursor: pointer; }
       .form-submit-btn:hover { background: var(--sun-orange); }
-      /* --- COMPLETE MODIFIED FOOTER CSS --- */
+
       footer {
-      /* Changed background color and significantly reduced top padding to decrease height */
       background: #1a1a1a;
       color: rgba(253, 251, 247, 0.75);
       padding: 2rem 1.5rem 1.5rem;
       border-top: 4px solid var(--sun-orange);
       }
+
       .footer-top-grid {
       max-width: 1300px;
       margin: 0 auto;
       display: grid;
       grid-template-columns: 1.2fr 0.8fr 1.2fr;
       gap: 3rem;
-      /* Reduced margin-bottom to further decrease the overall footer height */
       margin-bottom: 1.5rem;
       }
+
       .footer-brand-col {
       display: flex;
       flex-direction: column;
       gap: 1rem;
       }
+
       .footer-logo-wrap {
       width: 55px;
       height: 55px;
@@ -365,21 +581,25 @@
       justify-content: center;
       margin-bottom: 0.4rem;
       }
+
       .footer-logo-wrap img {
       width: 100%;
       height: 100%;
       object-fit: contain;
       }
+
       .footer-logo-text {
       font-family: 'Playfair Display', serif;
       font-size: 1.4rem;
       color: #fff;
       font-weight: 800;
       }
+
       .footer-mission {
       font-size: 0.88rem;
       line-height: 1.6;
       }
+
       .footer-heading {
       font-size: 1rem;
       color: #fff;
@@ -388,6 +608,7 @@
       text-transform: uppercase;
       letter-spacing: 0.5px;
       }
+
       .footer-links-list {
       list-style: none;
       display: flex;
@@ -395,19 +616,23 @@
       gap: 0.7rem;
       font-size: 0.88rem;
       }
+
       .footer-links-list a:hover {
       color: var(--sun-orange);
       padding-left: 4px;
       }
+
       .newsletter-desc {
       font-size: 0.88rem;
       margin-bottom: 1rem;
       }
+
       .newsletter-form-field {
       display: flex;
       border-radius: var(--radius-md);
       overflow: hidden;
       }
+
       .newsletter-input {
       padding: 0.7rem 1rem;
       border: none;
@@ -417,9 +642,11 @@
       font-size: 0.88rem;
       width: 100%;
       }
+
       .newsletter-input::placeholder {
       color: rgba(255,255,255,0.4);
       }
+
       .newsletter-submit {
       background: var(--sun-orange);
       color: #fff;
@@ -428,67 +655,71 @@
       font-weight: 600;
       cursor: pointer;
       }
+
       footer {
-      /* Lightest whitish green background for a calm look */
       background: #f1f8f3;
-      /* Dark text for high visibility on light background */
       color: var(--charcoal-grey);
       padding: 2.5rem 1.5rem 1.5rem;
       border-top: 4px solid var(--sun-orange);
       }
+
       .footer-top-grid {
       max-width: 1300px;
       margin: 0 auto;
       display: grid;
-      /* 3-Column Layout: Brand | Map | Subscribe */
       grid-template-columns: 1.2fr 0.8fr 1fr;
       gap: 3rem;
       margin-bottom: 1rem;
       align-items: start;
       }
-      /* --- COLUMN 1: LOGO & BRAND --- */
+
       .footer-brand-col {
       display: flex;
       flex-direction: column;
       gap: 0.8rem;
       }
+
       .footer-logo-wrap {
       width: 100px;
       height: 45px;
       margin-bottom: 0.2rem;
       }
+
       .footer-logo-text {
       font-family: 'Playfair Display', serif;
       font-size: 1.3rem;
-      color: var(--forest-green) !important; /* Visible dark green */
+      color: var(--forest-green) !important;
       font-weight: 800;
       line-height: 1.2;
       }
+
       .footer-mission {
       font-size: 0.88rem;
       line-height: 1.6;
       color: var(--text-muted);
       }
-      /* --- COLUMN 2: MAP --- */
+
       .footer-map-col {
       text-align: center;
       display: flex;
       flex-direction: column;
       gap: 1rem;
       }
+
       .footer-map-col h4 {
       font-size: 1rem;
       color: var(--forest-green);
       text-transform: uppercase;
       letter-spacing: 0.5px;
       }
+
       .footer-map-col img {
       max-width: 180px;
       margin: 0 auto;
       opacity: 0.9;
       filter: drop-shadow(0 4px 12px rgba(30,63,32,0.1));
       }
-      /* --- COLUMN 3: SUBSCRIBE --- */
+
       .footer-heading {
       font-size: 1rem;
       color: var(--forest-green) !important;
@@ -497,11 +728,13 @@
       text-transform: uppercase;
       letter-spacing: 0.5px;
       }
+
       .newsletter-desc {
       font-size: 0.88rem;
       margin-bottom: 1rem;
       color: var(--text-muted);
       }
+
       .newsletter-form-field {
       display: flex;
       border: 1px solid rgba(61,90,70,0.2);
@@ -509,6 +742,7 @@
       overflow: hidden;
       background: #fff;
       }
+
       .newsletter-input {
       padding: 0.7rem 1rem;
       border: none;
@@ -517,6 +751,7 @@
       font-size: 0.88rem;
       width: 100%;
       }
+
       .newsletter-submit {
       background: var(--sun-orange);
       color: #fff;
@@ -525,31 +760,33 @@
       font-weight: 600;
       cursor: pointer;
       }
-      /* --- FOOTER BOTTOM BAR: RIGHTS & LICENSE --- */
+
       .footer-bottom-bar {
       max-width: 1300px;
       margin: 0 auto;
       border-top: 1px solid rgba(61,90,70,0.1);
       padding-top: 1.2rem;
       display: flex;
-      justify-content: space-between; /* Rights on left, License on right */
+      justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
       gap: 1rem;
       font-size: 0.82rem;
       color: var(--text-muted);
       }
-      /* Responsive fixes */
+
       @media(max-width: 1024px) {
       .footer-top-grid {
       grid-template-columns: 1fr 1fr;
       }
       }
+
       @media(max-width: 768px) {
       .footer-top-grid {
       grid-template-columns: 1fr;
       text-align: center;
       }
+
       .footer-bottom-bar {
       flex-direction: column;
       }
@@ -563,9 +800,34 @@
       @media(max-width: 768px) {
       html, body { overflow-x: hidden; width: 100%; }
       header { overflow: visible; width: 100%; left: 0; right: 0; }
-      .nav-container { flex-wrap: nowrap; padding: 0.75rem 0.85rem; justify-content: space-between; min-width: 0; position: relative; width: 100%; max-width: 100%; overflow: visible; box-sizing: border-box; }
-      .logo { flex: 1 1 auto; min-width: 0; display: flex; align-items: center; gap: 0.75rem; }
-      .logo-text { min-width: 0; overflow-wrap: break-word; word-break: break-word; white-space: normal; }
+
+      .nav-container {
+      flex-wrap: nowrap;
+      padding: 0.75rem 0.85rem;
+      justify-content: space-between;
+      min-width: 0;
+      position: relative;
+      width: 100%;
+      max-width: 100%;
+      overflow: visible;
+      box-sizing: border-box;
+      }
+
+      .logo {
+      flex: 1 1 auto;
+      min-width: 0;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      }
+
+      .logo-text {
+      min-width: 0;
+      overflow-wrap: break-word;
+      word-break: break-word;
+      white-space: normal;
+      }
+
       .nav-menu {
       display: none !important;
       position: fixed;
@@ -588,57 +850,128 @@
       overscroll-behavior: contain;
       box-sizing: border-box;
       }
+
       .nav-menu.open { display: flex !important; }
       .nav-menu, .nav-menu > li { min-width: 0; }
       .nav-menu > li { width: 100%; }
       .nav-menu > li + li { margin-top: 0.3rem; }
       .nav-menu .nav-link { display: block; }
-      .menu-toggle { display: flex; align-items: center; justify-content: center; width: 42px; height: 42px; border: 1px solid rgba(30,63,32,0.15); border-radius: 14px; background: rgba(255,255,255,0.92); transition: background 0.3s ease, transform 0.3s ease; position: relative; overflow: visible; flex-shrink: 0; z-index: 1101; }
-      .menu-toggle:hover { background: rgba(255,255,255,1); transform: translateY(-1px); }
-      .menu-toggle i { position: absolute; transition: transform 0.25s ease, opacity 0.25s ease; font-size: 1rem; color: var(--forest-green); }
-      .menu-toggle .fa-xmark { opacity: 0; transform: scale(0.7); }
-      .menu-toggle.open .fa-bars { opacity: 0; transform: scale(0.7); }
-      .menu-toggle.open .fa-xmark { opacity: 1; transform: scale(1); }
-      .nav-link { display: block; width: 100%; padding: 0.85rem 0; white-space: normal; }
+      .menu-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(30,63,32,0.15);
+      border-radius: 14px;
+      background: rgba(255,255,255,0.92);
+      transition: background 0.3s ease, transform 0.3s ease;
+      position: relative;
+      overflow: visible;
+      flex-shrink: 0;
+      z-index: 1101;
+      }
+
+      .menu-toggle:hover {
+      background: rgba(255,255,255,1);
+      transform: translateY(-1px);
+      }
+
+      .menu-toggle i {
+      position: absolute;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+      font-size: 1rem;
+      color: var(--forest-green);
+      }
+
+      .menu-toggle .fa-xmark {
+      opacity: 0;
+      transform: scale(0.7);
+      }
+
+      .menu-toggle.open .fa-bars {
+      opacity: 0;
+      transform: scale(0.7);
+      }
+
+      .menu-toggle.open .fa-xmark {
+      opacity: 1;
+      transform: scale(1);
+      }
+
+      .nav-link {
+      display: block;
+      width: 100%;
+      padding: 0.85rem 0;
+      white-space: normal;
+      }
+
       .nav-link::after { display: none; }
       .nav-cta { display: none; }
+
       .hero-section { padding: 6.5rem 1rem 2.5rem; }
       .hero-title { font-size: 2.2rem; max-width: 100%; width: 100%; }
       .hero-sub { font-size: 1rem; max-width: 100%; width: 100%; }
       .hero-btns { flex-direction: column; align-items: stretch; }
       .hero-btns .btn-primary { width: 100%; justify-content: center; }
+
       .hero-slide span {
       left: 0 !important;
       right: 0 !important;
       width: 100% !important;
       min-width: 100% !important;
       }
+
       .ehc-mist {
       width: 120% !important;
       left: -10% !important;
       }
-      .about-grid, .contact-grid, .where-we-work, .programs-grid, .mv-grid, .footer-top-grid {
+
+      .about-grid,
+      .contact-grid,
+      .where-we-work,
+      .programs-grid,
+      .mv-grid,
+      .footer-top-grid {
       grid-template-columns: 1fr;
       gap: 2rem;
       }
+
       .about-grid { align-items: stretch; }
-      .about-image-right, .main-about-img, .contact-form-panel, .partner-card, .program-card, .blog-grid-container, .gallery-item {
+
+      .about-image-right,
+      .main-about-img,
+      .contact-form-panel,
+      .partner-card,
+      .program-card,
+      .blog-grid-container,
+      .gallery-item {
       width: 100%;
       max-width: 100%;
       box-sizing: border-box;
       }
-      .contact-form-panel, .contact-info-panel {
+
+      .contact-form-panel,
+      .contact-info-panel {
       width: 100%;
       max-width: 100%;
       box-sizing: border-box;
       }
+
       .contact-grid {
       width: 100%;
       max-width: 100%;
       box-sizing: border-box;
       }
+
       .main-about-img { height: auto; }
-      .founder-card { position: static; margin: 1.5rem 0 0; max-width: 100%; }
+
+      .founder-card {
+      position: static;
+      margin: 1.5rem 0 0;
+      max-width: 100%;
+      }
+
       .sixe-flow { flex-direction: column; }
       .sixe-arrow { display: none; }
       .gallery-masonry { columns: 1; column-gap: 0; }
@@ -660,76 +993,95 @@
       .hero-sub { font-size: 0.96rem; }
       .hero-section { padding-top: 5.5rem; }
       .nav-container { padding: 1rem; }
-      .logo-text { font-size: 0.75rem;
-       margin-left: -2.5rem;}
-      .logo-text small { font-size: 0.55rem; letter-spacing: 1.5px; }
+
+      .logo-text {
+      font-size: 0.75rem;
+      margin-left: -2.5rem;
+      }
+
+      .logo-text small {
+      font-size: 0.55rem;
+      letter-spacing: 1.5px;
+      }
+
       .logo-img-wrap img { margin-left: -2.5rem; }
       .footer-top-grid { gap: 1rem; }
       footer { padding-top: 1rem; }
       }
 
-      
     </style>
+
     <meta
       name="google-adsense-platform-account"
       content="ca-host-pub-1556223355139109"
     />
     <meta name="google-adsense-platform-domain" content="blogspot.com" />
   </head>
+
   <body>
-    <!-- Ambient forest atmosphere: light drizzle, drifting mist, floating leaves. Decorative only, aria-hidden, disabled under prefers-reduced-motion. -->
+
     <div aria-hidden="true" class="ehc-atmosphere">
       <div class="ehc-rain"></div>
       <div class="ehc-mist m1"></div>
       <div class="ehc-mist m2"></div>
       <div class="ehc-mist m3"></div>
+
       <i
         class="ehc-leaf fa-solid fa-leaf"
         style="left: 8%; animation-duration: 19s; animation-delay: 0s"
       ></i>
+
       <i
         class="ehc-leaf fa-solid fa-leaf"
         style="left: 27%; animation-duration: 23s; animation-delay: 4s"
       ></i>
+
       <i
         class="ehc-leaf fa-solid fa-leaf"
         style="left: 52%; animation-duration: 21s; animation-delay: 9s"
       ></i>
+
       <i
         class="ehc-leaf fa-solid fa-leaf"
         style="left: 71%; animation-duration: 26s; animation-delay: 2s"
       ></i>
+
       <i
         class="ehc-leaf fa-solid fa-leaf"
         style="left: 88%; animation-duration: 20s; animation-delay: 12s"
       ></i>
     </div>
+
     <header id="mainHeader">
       <div class="nav-container">
+
         <a class="logo" href="#">
           <div class="logo-img-wrap">
-            <!-- SETUP NOTE: upload your logo PNG to Blogger (create a draft post, insert the image, copy its hosted URL) or an image host, then paste that URL here -->
             <img
               alt="Eastern Himalayas Collective Foundation Logo"
               src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi-VD77COV4Y3CDPLqmvbhAhOFhpCxR3BFfxRCVU7pp00l0VASuM_nHajtcNv6eBOF-6krBp23Z_h6kNCApnWE-xR6qBXw-vX_zQmp7t0VOMT8CXsDzwedbnBREJWZvBLIp9MYqL6CYp8jPPkI8G8QQ1oAT9bdYaCVo9NPd92V9ALe5yc-F0pKgeWeZDQCU/s320/logo-mark-transparent.png"
             />
           </div>
+
           <div class="logo-text">
-            EASTERN HIMALAYAS COLLECTIVE<small
-              >Soil &#183; Society &#183; Sustainability</small
-            >
+            EASTERN HIMALAYAS COLLECTIVE
+            <small>Soil &#183; Society &#183; Sustainability</small>
           </div>
         </a>
+
         <ul class="nav-menu" id="mainNav">
           <li><a class="nav-link" href="#about">About</a></li>
           <li><a class="nav-link" href="#focus">Programs</a></li>
           <li><a class="nav-link" href="#sixe">Framework</a></li>
           <li><a class="nav-link" href="#sdgs">SDGs</a></li>
           <li><a class="nav-link" href="#partners">Partners</a></li>
+          <li><a class="nav-link" href="#team">Team</a></li>
           <li><a class="nav-link" href="#blog">Updates</a></li>
           <li><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
+
         <a class="nav-cta" href="#contact">Partner With Us</a>
+
         <div
           class="menu-toggle"
           id="mobileMenuBtn"
@@ -743,10 +1095,13 @@
           <i class="fa-solid fa-bars" aria-hidden="true"></i>
           <i class="fa-solid fa-xmark" aria-hidden="true"></i>
         </div>
+
       </div>
     </header>
+
     <section class="hero-section">
       <div class="hero-slides">
+
         <div class="hero-slide">
           <span
             style="
@@ -754,6 +1109,7 @@
             "
           ></span>
         </div>
+
         <div class="hero-slide">
           <span
             style="
@@ -761,6 +1117,7 @@
             "
           ></span>
         </div>
+
         <div class="hero-slide">
           <span
             style="
@@ -768,6 +1125,7 @@
             "
           ></span>
         </div>
+
         <div class="hero-slide">
           <span
             style="
@@ -775,15 +1133,20 @@
             "
           ></span>
         </div>
+
       </div>
+
       <div class="hero-overlay"></div>
+
       <div class="hero-container">
         <div class="hero-glass-panel">
+
           <h1 class="hero-title">
             Cultivating <strong>sustainable</strong> futures from
             <strong>Soil</strong> to <strong>Society</strong> across the
             <strong>Eastern Himalayas</strong>
           </h1>
+
           <p class="hero-sub">
             Eastern Himalayas Collective Foundation works with farmers,
             indigenous communities, women, youth, institutions, and development
@@ -791,14 +1154,17 @@
             restore ecosystems, and foster resilient, self-reliant communities
             across Northeast India.
           </p>
+
           <div class="hero-btns">
-            <a class="btn-primary" href="#focus"
-              >See Our Approach <i class="fa-solid fa-arrow-right"></i
-            ></a>
+            <a class="btn-primary" href="#focus">
+              See Our Approach <i class="fa-solid fa-arrow-right"></i>
+            </a>
           </div>
+
         </div>
       </div>
     </section>
+
     <svg
       class="ehc-wave-divider"
       preserveAspectRatio="none"
@@ -809,13 +1175,18 @@
         d="M0,30 C200,60 400,0 600,20 C800,40 1000,60 1200,30 L1200,60 L0,60 Z"
       ></path>
     </svg>
+
     <section class="section-padding" id="about">
       <div class="about-grid">
+
         <div class="about-content-left">
+
           <span class="section-subtitle">Who We Are</span>
+
           <h2 class="section-main-title">
             Rooted in indigenous knowledge, guided by innovation
           </h2>
+
           <p class="section-desc" style="margin: 0; max-width: 100%">
             Eastern Himalayas Collective Foundation is a not-for-profit
             organization committed to advancing soil, society, and
@@ -825,6 +1196,7 @@
             conserve natural resources, restore ecosystems, and foster
             resilient, self-reliant communities.
           </p>
+
           <p class="section-desc" style="margin: 0; max-width: 100%">
             Rooted in indigenous knowledge and guided by innovation, we promote
             sustainable agriculture, biodiversity conservation, climate
@@ -832,13 +1204,18 @@
             protect the region's rich ecological and cultural heritage while
             creating lasting environmental, social, and economic impact.
           </p>
+
           <div class="pillar-quote-badge glass">
             &#8220;Inspired by Nature. Empowered by People. Driven by
             Purpose.&#8221;
           </div>
+
           <div class="mv-grid">
+
             <div class="mv-card glass">
-              <div class="mv-icon"><i class="fa-solid fa-flag"></i></div>
+              <div class="mv-icon">
+                <i class="fa-solid fa-flag"></i>
+              </div>
               <h4>Mission</h4>
               <p>
                 To inspire sustainable change by empowering communities,
@@ -846,8 +1223,11 @@
                 the Eastern Himalayas.
               </p>
             </div>
+
             <div class="mv-card glass">
-              <div class="mv-icon"><i class="fa-solid fa-eye"></i></div>
+              <div class="mv-icon">
+                <i class="fa-solid fa-eye"></i>
+              </div>
               <h4>Vision</h4>
               <p>
                 A harmonious Eastern Himalayas where healthy soil, vibrant
@@ -855,25 +1235,32 @@
                 for generations to come.
               </p>
             </div>
+
           </div>
         </div>
+
         <div class="about-image-right">
+
           <img
             alt="Village and hillside settlement in the Eastern Himalayas, Arunachal Pradesh"
             class="main-about-img"
             src="https://blogger.googleusercontent.com/img/a/AVvXsEikh5c-mo7Sk7u8SJRdq6H3G1H4sdhz4N2UlWHAMnICgAlG3U5lTW8NllJgg0WKsYPb6-Nvwj41y8ELIv_R_TE20wr2E2qRPUEJBHKT3syg-xfgua8opDfJiswpnImz7sqiBQ1Kz7Y7Z3uGNfeDsGSEs9Bdm9ei4kKU3yNiuE1OL20dEtm3VkAHgJar-mHB"
           />
+
           <div class="founder-card glass">
-            <span class="founder-quote"
-              >"Every meaningful change begins with a shared purpose. We founded
+            <span class="founder-quote">
+              "Every meaningful change begins with a shared purpose. We founded
               this collective to turn that purpose into action for people,
               nature, and future generations"
             </span>
+
             <span class="founder-meta">Founding Team</span>
           </div>
+
         </div>
       </div>
     </section>
+
     <svg
       class="ehc-wave-divider"
       preserveAspectRatio="none"
@@ -884,115 +1271,119 @@
         d="M0,20 C300,50 500,0 700,25 C900,50 1050,10 1200,25 L1200,60 L0,60 Z"
       ></path>
     </svg>
-   <section class="section-padding" id="focus">
-  <div class="section-title-wrap">
-    <span class="section-subtitle">What We Do</span>
-    <h2 class="section-main-title">Our Four Strategic Pillars</h2>
-    <p class="section-desc">
-      Four interconnected pillars guiding our work across people, landscapes,
-      knowledge, and sustainable livelihoods.
-    </p>
-  </div>
 
-  <div class="programs-grid">
+    <section class="section-padding" id="focus">
 
-    <!-- Pillar 1: Agroecology -->
-    <div class="program-card">
-      <div class="program-img-wrap">
-        <img
-          alt="Women harvesting tea leaves in Assam, an example of organic agriculture in the Eastern Himalayas"
-          src="https://blogger.googleusercontent.com/img/a/AVvXsEiR90oTeuzHKYZnEaKTQTOcUOHg9cuerLures_La2hE4B_1TQIHwbsWJ_2kwiI5bipgPSOLAwWGUFPa9qch7th0IU0GEk4iTHNTwPe-a2PPiRy7ZcS2Kn_NfArc5zsbg5vU8dxV88gFhu9LjgNLzVofQT9DDoPM3bIkdNE22rCQvIW16j4-gEMlgiZQ1T1d"
-        />
-      </div>
+      <div class="section-title-wrap">
+        <span class="section-subtitle">What We Do</span>
 
-      <div class="program-body">
-        <div class="program-icon-bar">
-          <i class="fa-solid fa-seedling"></i>
-        </div>
+        <h2 class="section-main-title">
+          Our Four Strategic Pillars
+        </h2>
 
-        <h3 class="program-card-title">Agroecology</h3>
-
-        <p class="program-card-desc">
-          Promoting natural, diverse, and sustainable farming practices for
-          healthy soil, resilient food systems, and improved rural livelihoods.
+        <p class="section-desc">
+          Four interconnected pillars guiding our work across people, landscapes,
+          knowledge, and sustainable livelihoods.
         </p>
       </div>
-    </div>
 
+      <div class="programs-grid">
 
-    <!-- Pillar 2: Living Landscape -->
-    <div class="program-card">
-      <div class="program-img-wrap">
-        <img
-          alt="River flowing through forest landscape, Arunachal Pradesh"
-          src="https://images.unsplash.com/photo-1589808015717-a626de258af0?auto=format&fit=crop&q=80&w=700"
-        />
-      </div>
+        <div class="program-card">
 
-      <div class="program-body">
-        <div class="program-icon-bar">
-          <i class="fa-solid fa-tree"></i>
+          <div class="program-img-wrap">
+            <img
+              alt="Women harvesting tea leaves in Assam, an example of organic agriculture in the Eastern Himalayas"
+              src="https://blogger.googleusercontent.com/img/a/AVvXsEiR90oTeuzHKYZnEaKTQTOcUOHg9cuerLures_La2hE4B_1TQIHwbsWJ_2kwiI5bipgPSOLAwWGUFPa9qch7th0IU0GEk4iTHNTwPe-a2PPiRy7ZcS2Kn_NfArc5zsbg5vU8dxV88gFhu9LjgNLzVofQT9DDoPM3bIkdNE22rCQvIW16j4-gEMlgiZQ1T1d"
+            />
+          </div>
+
+          <div class="program-body">
+            <div class="program-icon-bar">
+              <i class="fa-solid fa-seedling"></i>
+            </div>
+
+            <h3 class="program-card-title">Agroecology</h3>
+
+            <p class="program-card-desc">
+              Promoting natural, diverse, and sustainable farming practices for
+              healthy soil, resilient food systems, and improved rural livelihoods.
+            </p>
+          </div>
         </div>
 
-        <h3 class="program-card-title">Living Landscape</h3>
+        <div class="program-card">
 
-        <p class="program-card-desc">
-          Conserving forests, biodiversity, water resources, and agricultural
-          landscapes for resilient ecosystems and communities.
-        </p>
-      </div>
-    </div>
+          <div class="program-img-wrap">
+            <img
+              alt="River flowing through forest landscape, Arunachal Pradesh"
+              src="https://images.unsplash.com/photo-1589808015717-a626de258af0?auto=format&fit=crop&q=80&w=700"
+            />
+          </div>
 
+          <div class="program-body">
+            <div class="program-icon-bar">
+              <i class="fa-solid fa-tree"></i>
+            </div>
 
-    <!-- Pillar 3: Thriving Society -->
-    <div class="program-card">
-      <div class="program-img-wrap">
-        <img
-          alt="Community members and rural livelihoods in the Eastern Himalayas"
-          src="https://blogger.googleusercontent.com/img/a/AVvXsEjqNRlafdHJqZmJUMrjff1XWzasY_Xa2O2_A3t50tPrORDe-yAZRAN7DXTKRDGUBhRsLPXuYKMB8jg459vLG8lnF8b9Vb947Y_CiStBNQF2diEVA1n6pzcT4aPYTyo4QgfnRsqbBFQEjXpSswXlWh3w4yNRqjGKiv1L8dpYWBqRwPe52An9ZuDOC34IpPdX"
-        />
-      </div>
+            <h3 class="program-card-title">Living Landscape</h3>
 
-      <div class="program-body">
-        <div class="program-icon-bar">
-          <i class="fa-solid fa-people-group"></i>
+            <p class="program-card-desc">
+              Conserving forests, biodiversity, water resources, and agricultural
+              landscapes for resilient ecosystems and communities.
+            </p>
+          </div>
         </div>
 
-        <h3 class="program-card-title">Thriving Society</h3>
+        <div class="program-card">
 
-        <p class="program-card-desc">
-          Empowering farmers, women, youth, and communities to strengthen
-          livelihoods, entrepreneurship, inclusion, and collective well-being.
-        </p>
-      </div>
-    </div>
+          <div class="program-img-wrap">
+            <img
+              alt="Community members and rural livelihoods in the Eastern Himalayas"
+              src="https://blogger.googleusercontent.com/img/a/AVvXsEjqNRlafdHJqZmJUMrjff1XWzasY_Xa2O2_A3t50tPrORDe-yAZRAN7DXTKRDGUBhRsLPXuYKMB8jg459vLG8lnF8b9Vb947Y_CiStBNQF2diEVA1n6pzcT4aPYTyo4QgfnRsqbBFQEjXpSswXlWh3w4yNRqjGKiv1L8dpYWBqRwPe52An9ZuDOC34IpPdX"
+            />
+          </div>
 
+          <div class="program-body">
+            <div class="program-icon-bar">
+              <i class="fa-solid fa-people-group"></i>
+            </div>
 
-    <!-- Pillar 4: Knowledge for Change -->
-    <div class="program-card">
-      <div class="program-img-wrap">
-        <img
-          alt="Community members gathered for a training session, Arunachal Pradesh"
-          src="https://blogger.googleusercontent.com/img/a/AVvXsEhnoTE_-uEKxPHBUMQmMp__Uwutuo0VovrNqIXNZ5g58l80BDoX9Ruq557aC4CljXqZCfzFR9gLptN-KGfIllTE1HA6lJmGmE0euJtPlyUxCBQ3y0lr-bHVtpJJAMQVpQ92QZ4-CB-rI0mPczYoN_P5-jWmq8q_21E5Rz_ZPspCYK3p8WHeNUauWR7HixHD"
-        />
-      </div>
+            <h3 class="program-card-title">Thriving Society</h3>
 
-      <div class="program-body">
-        <div class="program-icon-bar">
-          <i class="fa-solid fa-book-open"></i>
+            <p class="program-card-desc">
+              Empowering farmers, women, youth, and communities to strengthen
+              livelihoods, entrepreneurship, inclusion, and collective well-being.
+            </p>
+          </div>
         </div>
 
-        <h3 class="program-card-title">Knowledge for Change</h3>
+        <div class="program-card">
 
-        <p class="program-card-desc">
-          Generating, sharing, and applying knowledge through research,
-          indigenous wisdom, training, innovation, and capacity building.
-        </p>
+          <div class="program-img-wrap">
+            <img
+              alt="Community members gathered for a training session, Arunachal Pradesh"
+              src="https://blogger.googleusercontent.com/img/a/AVvXsEhnoTE_-uEKxPHBUMQmMp__Uwutuo0VovrNqIXNZ5g58l80BDoX9Ruq557aC4CljXqZCfzFR9gLptN-KGfIllTE1HA6lJmGmE0euJtPlyUxCBQ3y0lr-bHVtpJJAMQVpQ92QZ4-CB-rI0mPczYoN_P5-jWmq8q_21E5Rz_ZPspCYK3p8WHeNUauWR7HixHD"
+            />
+          </div>
+
+          <div class="program-body">
+            <div class="program-icon-bar">
+              <i class="fa-solid fa-book-open"></i>
+            </div>
+
+            <h3 class="program-card-title">Knowledge for Change</h3>
+
+            <p class="program-card-desc">
+              Generating, sharing, and applying knowledge through research,
+              indigenous wisdom, training, innovation, and capacity building.
+            </p>
+          </div>
+        </div>
+
       </div>
-    </div>
-</div>
     </section>
-    <!-- Six 'E' Framework &#8212; this is a real operating sequence, so numbering + arrows are load-bearing, not decorative -->
+
     <svg
       class="ehc-wave-divider into-dark"
       preserveAspectRatio="none"
@@ -1003,69 +1394,71 @@
         d="M0,25 C250,55 450,5 700,30 C900,50 1050,15 1200,20 L1200,60 L0,60 Z"
       ></path>
     </svg>
+
     <section class="section-padding sixe-section" id="sixe">
+
       <div class="section-title-wrap">
         <span class="section-subtitle">How We Work</span>
         <h2 class="section-main-title">Our Six &#8216;E&#8217; Framework</h2>
-        
       </div>
+
       <div class="sixe-flow">
+
         <div class="sixe-item glass-dark">
-          
           <h4>Engage</h4>
           <p>
             Build meaningful relationships with communities, institutions, and
             partners through trust, participation, and collaboration.
           </p>
         </div>
-        
+
         <div class="sixe-item glass-dark">
-          
           <h4>Explore</h4>
           <p>
             Understand local needs, indigenous knowledge, opportunities, and
             challenges through research, dialogue, and field engagement.
           </p>
         </div>
-       
+
         <div class="sixe-item glass-dark">
-          
           <h4>Enrich</h4>
           <p>
             Strengthen knowledge, skills, livelihoods, and natural resources
             through training, innovation, and sustainable practices.
           </p>
         </div>
+
       </div>
+
       <div class="sixe-flow">
+
         <div class="sixe-item glass-dark">
-          
           <h4>Execute</h4>
           <p>
             Implement impactful, community-led initiatives that promote
             sustainable development and environmental stewardship.
           </p>
         </div>
-        
+
         <div class="sixe-item glass-dark">
-         
           <h4>Evaluate</h4>
           <p>
             Measure outcomes, assess impact, and learn from experience to ensure
             transparency, accountability, and continuous improvement.
           </p>
         </div>
-        
+
         <div class="sixe-item glass-dark">
-          
           <h4>Evolve</h4>
           <p>
             Scale successful models, embrace innovation, and adapt to emerging
             challenges for lasting and sustainable impact.
           </p>
         </div>
-  </div>
-</section>
+
+      </div>
+    </section>
+
     <svg
       class="ehc-wave-divider"
       preserveAspectRatio="none"
@@ -1077,139 +1470,150 @@
         d="M0,30 C300,0 500,55 750,25 C950,5 1050,45 1200,30 L1200,60 L0,60 Z"
       ></path>
     </svg>
+
     <section class="section-padding sdg-section" id="sdgs">
-  <div class="section-title-wrap">
-    <span class="section-subtitle">Global Alignment</span>
-    <h2 class="section-main-title">
-      Our Commitment to the Sustainable Development Goals
-    </h2>
-  </div>
 
-  <div class="sdg-group-wrap">
+      <div class="section-title-wrap">
+        <span class="section-subtitle">Global Alignment</span>
 
-    <!-- PRIMARY / CORE GOALS -->
-    <div class="sdg-group">
-      <div class="sdg-group-header">
-        <span class="sdg-group-label">Core Goals</span>
-        <p>
-          These three goals are at the core of our mission and guide our
-          principal programmes and impact priorities.
-        </p>
+        <h2 class="section-main-title">
+          Our Commitment to the Sustainable Development Goals
+        </h2>
       </div>
 
-      <div class="sdg-icon-grid">
+      <div class="sdg-group-wrap">
 
-        <!-- SDG 2 -->
-        <div class="sdg-icon-card">
-          <img
-            alt="UN Sustainable Development Goal 2: Zero Hunger"
-            src="https://commons.wikimedia.org/wiki/Special:FilePath/Sustainable%20Development%20Goal%202.png"
-          />
+        <div class="sdg-group">
+
+          <div class="sdg-group-header">
+            <span class="sdg-group-label">Core Goals</span>
+
+            <p>
+              These three goals are at the core of our mission and guide our
+              principal programmes and impact priorities.
+            </p>
+          </div>
+
+          <div class="sdg-icon-grid">
+
+            <div class="sdg-icon-card">
+              <img
+                alt="UN Sustainable Development Goal 2: Zero Hunger"
+                src="https://commons.wikimedia.org/wiki/Special:FilePath/Sustainable%20Development%20Goal%202.png"
+              />
+            </div>
+
+            <div class="sdg-icon-card">
+              <img
+                alt="UN Sustainable Development Goal 15: Life on Land"
+                src="https://commons.wikimedia.org/wiki/Special:FilePath/Sustainable%20Development%20Goal%2015.png"
+              />
+            </div>
+
+            <div class="sdg-icon-card">
+              <img
+                alt="UN Sustainable Development Goal 1: No Poverty"
+                src="https://commons.wikimedia.org/wiki/Special:FilePath/Sustainable%20Development%20Goal%201.png"
+              />
+            </div>
+
+          </div>
         </div>
 
-        <!-- SDG 15 -->
-        <div class="sdg-icon-card">
-          <img
-            alt="UN Sustainable Development Goal 15: Life on Land"
-            src="https://commons.wikimedia.org/wiki/Special:FilePath/Sustainable%20Development%20Goal%2015.png"
-          />
-        </div>
+        <div class="sdg-group">
 
-        <!-- SDG 1 -->
-        <div class="sdg-icon-card">
-          <img
-            alt="UN Sustainable Development Goal 1: No Poverty"
-            src="https://commons.wikimedia.org/wiki/Special:FilePath/Sustainable%20Development%20Goal%201.png"
-          />
+          <div class="sdg-group-header">
+            <span class="sdg-group-label">Enabling Goals</span>
+
+            <p>
+              These goals strengthen and enable our core work through inclusion,
+              livelihoods, responsible production, climate resilience, and
+              partnerships.
+            </p>
+          </div>
+
+          <div class="sdg-icon-grid">
+
+            <div class="sdg-icon-card">
+              <img
+                alt="UN Sustainable Development Goal 5: Gender Equality"
+                src="https://commons.wikimedia.org/wiki/Special:FilePath/Sustainable%20Development%20Goal%205.png"
+              />
+            </div>
+
+            <div class="sdg-icon-card">
+              <img
+                alt="UN Sustainable Development Goal 8: Decent Work and Economic Growth"
+                src="https://commons.wikimedia.org/wiki/Special:FilePath/Sustainable%20Development%20Goal%208.png"
+              />
+            </div>
+
+            <div class="sdg-icon-card">
+              <img
+                alt="UN Sustainable Development Goal 12: Responsible Consumption and Production"
+                src="https://commons.wikimedia.org/wiki/Special:FilePath/Sustainable%20Development%20Goal%2012.png"
+              />
+            </div>
+
+            <div class="sdg-icon-card">
+              <img
+                alt="UN Sustainable Development Goal 13: Climate Action"
+                src="https://commons.wikimedia.org/wiki/Special:FilePath/Sustainable%20Development%20Goal%2013.png"
+              />
+            </div>
+
+            <div class="sdg-icon-card">
+              <img
+                alt="UN Sustainable Development Goal 17: Partnerships for the Goals"
+                src="https://commons.wikimedia.org/wiki/Special:FilePath/Sustainable%20Development%20Goal%2017.png"
+              />
+            </div>
+
+          </div>
         </div>
 
       </div>
-    </div>
 
+      <p class="sdg-footnote">
+        Our work contributes to the Sustainable Development Goals through
+        sustainable agriculture, living landscapes, resilient livelihoods,
+        inclusive communities, climate action, and collaborative solutions across
+        the Eastern Himalayas.
+      </p>
+    </section>
 
-    <!-- SECONDARY / ENABLING GOALS -->
-    <div class="sdg-group">
-      <div class="sdg-group-header">
-          <span class="sdg-group-label">Enabling Goals</span>
-        <p>
-          These goals strengthen and enable our core work through inclusion,
-          livelihoods, responsible production, climate resilience, and
-          partnerships.
-        </p>
-      </div>
-
-      <div class="sdg-icon-grid">
-
-        <!-- SDG 5 -->
-        <div class="sdg-icon-card">
-          <img
-            alt="UN Sustainable Development Goal 5: Gender Equality"
-            src="https://commons.wikimedia.org/wiki/Special:FilePath/Sustainable%20Development%20Goal%205.png"
-          />
-        </div>
-
-        <!-- SDG 8 -->
-        <div class="sdg-icon-card">
-          <img
-            alt="UN Sustainable Development Goal 8: Decent Work and Economic Growth"
-            src="https://commons.wikimedia.org/wiki/Special:FilePath/Sustainable%20Development%20Goal%208.png"
-          />
-        </div>
-
-        <!-- SDG 12 -->
-        <div class="sdg-icon-card">
-          <img
-            alt="UN Sustainable Development Goal 12: Responsible Consumption and Production"
-            src="https://commons.wikimedia.org/wiki/Special:FilePath/Sustainable%20Development%20Goal%2012.png"
-          />
-        </div>
-
-        <!-- SDG 13 -->
-        <div class="sdg-icon-card">
-          <img
-            alt="UN Sustainable Development Goal 13: Climate Action"
-            src="https://commons.wikimedia.org/wiki/Special:FilePath/Sustainable%20Development%20Goal%2013.png"
-          />
-        </div>
-
-        <!-- SDG 17 -->
-        <div class="sdg-icon-card">
-          <img
-            alt="UN Sustainable Development Goal 17: Partnerships for the Goals"
-            src="https://commons.wikimedia.org/wiki/Special:FilePath/Sustainable%20Development%20Goal%2017.png"
-          />
-        </div>
-
-      </div>
-    </div>
-
-  </div>
-
-  <p class="sdg-footnote">
-    Our work contributes to the Sustainable Development Goals through
-    sustainable agriculture, living landscapes, resilient livelihoods,
-    inclusive communities, climate action, and collaborative solutions across
-    the Eastern Himalayas.
-  </p>
-</section>
     <section class="section-padding impact-section" id="impact">
+
       <div class="section-title-wrap">
         <span class="section-subtitle">Where We Are Today</span>
         <h2 class="section-main-title">Just Getting Started</h2>
       </div>
+
       <div class="launch-note glass-dark">
+
         <span class="eyebrow-white">Field Note</span>
+
         <p>
-          Eastern Himalayas Collective is growing from the ground up, working closely with people and communities to build a more sustainable and resilient future for the Eastern Himalayas.
+          Eastern Himalayas Collective is growing from the ground up, working
+          closely with people and communities to build a more sustainable and
+          resilient future for the Eastern Himalayas.
 
-Our work is taking shape around natural and organic farming, sustainable livelihoods, biodiversity, climate resilience, and stronger rural communities. We are connecting with local people, building partnerships, learning from the landscape, and turning those conversations into practical action.
+          Our work is taking shape around natural and organic farming,
+          sustainable livelihoods, biodiversity, climate resilience, and stronger
+          rural communities. We are connecting with local people, building
+          partnerships, learning from the landscape, and turning those
+          conversations into practical action.
 
-We are at the inception of our journey and its already started. Our focus today is simple, we listen, work together, act locally, and build something that can create lasting change.
+          We are at the inception of our journey and its already started. Our
+          focus today is simple, we listen, work together, act locally, and build
+          something that can create lasting change.
 
-This is where our journey begins..
+          This is where our journey begins..
         </p>
+
       </div>
     </section>
+
     <svg
       class="ehc-wave-divider"
       preserveAspectRatio="none"
@@ -1221,306 +1625,771 @@ This is where our journey begins..
         d="M0,20 C280,50 480,5 720,28 C920,48 1060,12 1200,22 L1200,60 L0,60 Z"
       ></path>
     </svg>
+
+    <!-- =========================================================
+         PARTNERSHIPS THAT MATTER
+         ========================================================= -->
+
     <section class="section-padding" id="partners">
+
       <div class="section-title-wrap">
-        <span class="section-subtitle">Partnerships That Matter</span>
-        <h2 class="section-main-title"> Prospective Partner</h2>
+
+        <span class="section-subtitle">
+          Partnerships That Matter
+        </span>
+
+        <h2 class="section-main-title">
+          Prospective Partner
+        </h2>
+
         <p class="section-desc">
           Together, let&#8217;s cultivate sustainable futures from soil to
           society across the Eastern Himalayas.
         </p>
+
       </div>
+
       <div class="partner-grid">
+
         <div class="partner-card glass">
           <div class="partner-icon">
             <i class="fa-solid fa-building-columns"></i>
           </div>
+
           <h4>Institutional Partners</h4>
+
           <p>
-            Collaborating with government, academic and institutions to advance inclusive and
-            sustainable development.
+            Collaborating with government, academic and institutions to advance
+            inclusive and sustainable development.
           </p>
         </div>
+
         <div class="partner-card glass">
-          <div class="partner-icon"><i class="fa-solid fa-handshake"></i></div>
+
+          <div class="partner-icon">
+            <i class="fa-solid fa-handshake"></i>
+          </div>
+
           <h4>Community Partners</h4>
+
           <p>
-            Working hand in hand with local communities, networks, volunteers to create lasting,
-            community-led impact.
+            Working hand in hand with local communities, networks, volunteers
+            to create lasting, community-led impact.
           </p>
+
         </div>
+
         <div class="partner-card glass">
+
           <div class="partner-icon">
             <i class="fa-solid fa-graduation-cap"></i>
           </div>
+
           <h4>Corporate Partners</h4>
+
           <p>
-             Partnering with businesses to deliver meaningful social and
+            Partnering with businesses to deliver meaningful social and
             environmental impact through CSR initiatives..
           </p>
+
         </div>
+
         <div class="partner-card glass">
-          <div class="partner-icon"><i class="fa-solid fa-briefcase"></i></div>
+
+          <div class="partner-icon">
+            <i class="fa-solid fa-briefcase"></i>
+          </div>
+
           <h4>Philanthropy Partners</h4>
+
           <p>
             Mobilizing philanthropic support to scale sustainable and
             transformative initiatives..
           </p>
+
         </div>
+
         <div class="partner-card glass">
+
           <div class="partner-icon">
             <i class="fa-solid fa-hand-holding-heart"></i>
           </div>
+
           <h4>Impact Partners</h4>
+
           <p>
-            Collaborate wiith change agents, knowledge leaders and advocates to drive meaningful and systemic impact.
+            Collaborate wiith change agents, knowledge leaders and advocates
+            to drive meaningful and systemic impact.
           </p>
+
         </div>
-       
+
         <div class="partner-card glass">
-          <div class="partner-icon"><i class="fa-solid fa-camera"></i></div>
+
+          <div class="partner-icon">
+            <i class="fa-solid fa-camera"></i>
+          </div>
+
           <h4>Outreach Partners</h4>
+
           <p>
             Amplifying voices, sharing stories, and inspiring action through
             strategic communication and outreach.
           </p>
+
         </div>
+
       </div>
+
       <div class="partner-cta-row">
-        <a class="btn-primary" href="#contact"
-          >Start a Conversation <i class="fa-solid fa-arrow-right"></i
-        ></a>
+        <a class="btn-primary" href="#contact">
+          Start a Conversation
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
       </div>
+
     </section>
-    <!-- Blogger dynamic posts feed -->
-    <section class="section-padding blog-section" id="blog">
+
+    <!-- =========================================================
+         MEET OUR TEAM
+         ========================================================= -->
+
+    <section class="section-padding team-section" id="team">
+
       <div class="section-title-wrap">
-        <span class="section-subtitle">Field Updates</span>
-        <h2 class="section-main-title">Updates From the Ground</h2>
+
+        <span class="section-subtitle">
+          The People Behind the Work
+        </span>
+
+        <h2 class="section-main-title">
+          Meet Our Team
+        </h2>
+
+        <p class="section-desc">
+          A growing collective of people bringing together knowledge,
+          experience, community engagement, and a shared commitment to
+          people and the landscapes of the Eastern Himalayas.
+        </p>
+
+      </div>
+
+      <div class="team-slider-wrap">
+
+        <div class="team-slider" id="teamSlider">
+
+          <!-- TEAM MEMBER 01
+               Replace image URL, name, role and introduction -->
+          <div class="team-card">
+
+            <div class="team-photo-wrap">
+              <img
+                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=700"
+                alt="Team member"
+              />
+            </div>
+
+            <div class="team-card-body">
+
+              <h3 class="team-name">
+                Team Member One
+              </h3>
+
+              <span class="team-role">
+                Founder / Director
+              </span>
+
+              <p class="team-intro">
+                A short introduction about the team member, their role,
+                experience, and contribution to the work of Eastern Himalayas
+                Collective.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <!-- TEAM MEMBER 02
+               Replace image URL, name, role and introduction -->
+          <div class="team-card">
+
+            <div class="team-photo-wrap">
+              <img
+                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=700"
+                alt="Team member"
+              />
+            </div>
+
+            <div class="team-card-body">
+
+              <h3 class="team-name">
+                Team Member Two
+              </h3>
+
+              <span class="team-role">
+                Director / Field Engagement
+              </span>
+
+              <p class="team-intro">
+                A short introduction about the team member, their field
+                experience, community engagement, and contribution to EHCF
+                programmes.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <!-- TEAM MEMBER 03
+               Replace image URL, name, role and introduction -->
+          <div class="team-card">
+
+            <div class="team-photo-wrap">
+              <img
+                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=700"
+                alt="Team member"
+              />
+            </div>
+
+            <div class="team-card-body">
+
+              <h3 class="team-name">
+                Team Member Three
+              </h3>
+
+              <span class="team-role">
+                Programme &amp; Community
+              </span>
+
+              <p class="team-intro">
+                A short introduction about the team member, their programme
+                responsibilities, local knowledge, and work with communities.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <!-- TEAM MEMBER 04
+               Replace image URL, name, role and introduction -->
+          <div class="team-card">
+
+            <div class="team-photo-wrap">
+              <img
+                src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=700"
+                alt="Team member"
+              />
+            </div>
+
+            <div class="team-card-body">
+
+              <h3 class="team-name">
+                Team Member Four
+              </h3>
+
+              <span class="team-role">
+                Outreach &amp; Partnerships
+              </span>
+
+              <p class="team-intro">
+                A short introduction about the team member, their work in
+                outreach, communications, partnerships, or institutional
+                coordination.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <!--
+            FUTURE TEAM MEMBER EXAMPLE
+
+            Copy the complete block below and paste it here
+            whenever you want to add another team member.
+
+          <div class="team-card">
+
+            <div class="team-photo-wrap">
+              <img
+                src="YOUR-PHOTO-URL-HERE"
+                alt="Team member"
+              />
+            </div>
+
+            <div class="team-card-body">
+
+              <h3 class="team-name">
+                Member Name
+              </h3>
+
+              <span class="team-role">
+                Designation
+              </span>
+
+              <p class="team-intro">
+                Short introduction about the member.
+              </p>
+
+            </div>
+
+          </div>
+
+          -->
+
+        </div>
+
+
+        <!-- RIGHT SIDE SCROLL ARROW -->
+
+        <button
+          class="team-scroll-btn"
+          type="button"
+          aria-label="View more team members"
+          onclick="scrollTeamMembers()"
+        >
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+
+      </div>
+
+      <div class="team-scroll-hint">
+        <i class="fa-solid fa-arrow-right"></i>
+        &nbsp; Scroll to meet more members
+      </div>
+
+    </section>
+
+    <!-- =========================================================
+         BLOG / UPDATES
+         ========================================================= -->
+
+    <section class="section-padding blog-section" id="blog">
+
+      <div class="section-title-wrap">
+
+        <span class="section-subtitle">
+          Field Updates
+        </span>
+
+        <h2 class="section-main-title">
+          Updates From the Ground
+        </h2>
+
         <p class="section-desc">
           Posts will appear here automatically once we publish them.
         </p>
+
       </div>
+
       <div class="blog-grid-container">
-        <div class="no-items section" id="Blog_Homepage_Section"></div>
+        <div
+          class="no-items section"
+          id="Blog_Homepage_Section"
+        ></div>
       </div>
+
     </section>
+
     <section class="section-padding" id="gallery">
+
       <div class="section-title-wrap">
-        <span class="section-subtitle">Visual Reference</span>
-        <h2 class="section-main-title">The Landscape We Work In</h2>
-        <p class="section-desc">
-        </p>
+
+        <span class="section-subtitle">
+          Visual Reference
+        </span>
+
+        <h2 class="section-main-title">
+          The Landscape We Work In
+        </h2>
+
+        <p class="section-desc"></p>
+
       </div>
+
       <div class="gallery-masonry" id="galleryMasonry">
-        <div class="gallery-item" onclick="ehcOpenLightbox(this)">
+
+        <div
+          class="gallery-item"
+          onclick="ehcOpenLightbox(this)"
+        >
+
           <img
             alt="Green terraced fields below the Eastern Himalayan hills, Arunachal Pradesh"
             src="https://images.unsplash.com/photo-1589808015717-a626de258af0?auto=format&fit=crop&q=80&w=700"
           />
+
           <div class="gallery-overlay">
-            <span class="gallery-text"
-              >Terraced Fields<small>Arunachal Pradesh</small></span
-            >
+
+            <span class="gallery-text">
+              Terraced Fields
+              <small>Arunachal Pradesh</small>
+            </span>
+
           </div>
-        
+
         </div>
-        <div class="gallery-item" onclick="ehcOpenLightbox(this)">
+
+        <div
+          class="gallery-item"
+          onclick="ehcOpenLightbox(this)"
+        >
+
           <img
             alt="Eastern Himalayan mountain range, Arunachal Pradesh"
             src="https://images.unsplash.com/photo-1626761627604-f27d98885f4b?auto=format&fit=crop&q=80&w=700"
           />
+
           <div class="gallery-overlay">
-            <span class="gallery-text"
-              >Eastern Himalayan Terrain<small>Natural Landscape</small></span
-            >
+
+            <span class="gallery-text">
+              Eastern Himalayan Terrain
+              <small>Natural Landscape</small>
+            </span>
+
           </div>
-        
+
         </div>
-        <div class="gallery-item" onclick="ehcOpenLightbox(this)">
+
+        <div
+          class="gallery-item"
+          onclick="ehcOpenLightbox(this)"
+        >
+
           <img
             alt="Women harvesting tea leaves, Bongaigaon, Assam"
             src="https://images.unsplash.com/photo-1758390285674-f1d55b9d1312?auto=format&fit=crop&q=80&w=700"
           />
+
           <div class="gallery-overlay">
-            <span class="gallery-text"
-              >Women in Agriculture<small>Assam Tea Gardens</small></span
-            >
+
+            <span class="gallery-text">
+              Women in Agriculture
+              <small>Assam Tea Gardens</small>
+            </span>
+
           </div>
-        
+
         </div>
+
       </div>
-      <div class="ehc-lightbox" id="ehcLightbox" onclick="ehcCloseLightbox()">
+
+      <div
+        class="ehc-lightbox"
+        id="ehcLightbox"
+        onclick="ehcCloseLightbox()"
+      >
         <img id="ehcLightboxImg" />
       </div>
+
     </section>
+
     <script type="text/javascript">
       //<![CDATA[
+
       function ehcOpenLightbox(el) {
         var src = el.querySelector("img").src;
         var lb = document.getElementById("ehcLightbox");
         document.getElementById("ehcLightboxImg").src = src;
         lb.classList.add("active");
       }
+
       function ehcCloseLightbox() {
         document.getElementById("ehcLightbox").classList.remove("active");
       }
+
+      /*
+       * MEET OUR TEAM SCROLLER
+       *
+       * The right arrow moves the team cards horizontally.
+       * As more team members are added, the same arrow will
+       * continue moving through the list.
+       */
+
+      function scrollTeamMembers() {
+        var slider = document.getElementById("teamSlider");
+
+        if (!slider) return;
+
+        var firstCard = slider.querySelector(".team-card");
+
+        if (!firstCard) return;
+
+        var cardWidth = firstCard.getBoundingClientRect().width;
+        var gap = 24;
+
+        slider.scrollBy({
+          left: cardWidth + gap,
+          behavior: "smooth"
+        });
+      }
+
       //]]>
     </script>
+
     <section class="section-padding contact-section" id="contact">
+
       <div class="contact-grid">
+
         <div class="contact-info-panel">
+
           <div>
-            <span class="section-subtitle">Get in Touch</span>
-            <h2 class="section-main-title">Contact Us</h2>
+
+            <span class="section-subtitle">
+              Get in Touch
+            </span>
+
+            <h2 class="section-main-title">
+              Contact Us
+            </h2>
+
             <p class="section-desc" style="margin: 0">
               Reach out for partnership, queries, or to learn more about Eastern
               Himalayas Collective Foundation.
             </p>
+
           </div>
+
           <div class="contact-card-item">
+
             <div class="contact-card-icon">
               <i class="fa-solid fa-location-dot"></i>
             </div>
+
             <div class="contact-card-text">
+
               <h4>Registered Office</h4>
+
               <p>
                 Hari Village, Ziro, Lower Subansiri District, Arunachal Pradesh,
                 India, PIN-791120.
               </p>
+
             </div>
+
           </div>
+
           <div class="contact-card-item">
+
             <div class="contact-card-icon">
               <i class="fa-solid fa-envelope"></i>
             </div>
+
             <div class="contact-card-text">
+
               <h4>Email</h4>
-              <p>easternhimalayascollective@gmail.com</p>
+
+              <p>
+                easternhimalayascollective@gmail.com
+              </p>
+
             </div>
+
           </div>
+
           <div class="contact-card-item">
+
             <div class="contact-card-icon">
               <i class="fa-solid fa-phone"></i>
             </div>
+
             <div class="contact-card-text">
+
               <h4>Phone</h4>
-              <p>+91 9233416056</p>
+
+              <p>
+                +91 9233416056
+              </p>
+
             </div>
+
           </div>
+
           <div class="region-strip glass">
-            <i class="fa-solid fa-map-location-dot"></i> Focus Region: Northeast
-            India (Eastern Himalayas)
+
+            <i class="fa-solid fa-map-location-dot"></i>
+
+            Focus Region: Northeast India (Eastern Himalayas)
+
           </div>
-          <!-- Same official Focus Region map &#8212; swap src for the hosted URL once uploaded -->
+
           <div class="contact-map-wrap">
+
             <img
               alt="Focus Region map: Northeast India highlighted on the map of India"
               src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjAGFqqWX-O7bULzQmMiHue-TKadJMloM6l7YR0nZspJEOFaG82KNs1VE3ldAIXETfzcfBHRpY9fXMsuPmDr71uObPivGKR6KZQi9oU9WMuOg-eDrb1LoIcEP8jzyjF4OP7CTVF9WNMAq7hp6Gc-afXkj4rT9iKEmz23e7HKM_V3Mnp6TRHYtFKm3aGQD44/s320/Picsart_26-07-31_15-13-03-966.png"
             />
+
           </div>
+
           <div>
-            <h4 style="margin-bottom: 0.5rem; margin-top: 1rem">Follow Us</h4>
+
+            <h4 style="margin-bottom: 0.5rem; margin-top: 1rem">
+              Follow Us
+            </h4>
+
             <div class="social-links-row">
+
               <a
                 class="social-circle-btn"
                 href="https://facebook.com/easternhimalayascollective"
                 title="Facebook"
-                ><i class="fa-brands fa-facebook-f"></i
-              ></a>
+              >
+                <i class="fa-brands fa-facebook-f"></i>
+              </a>
+
               <a
                 class="social-circle-btn"
                 href="https://instagram.com/easternhimalayascollective"
                 title="Instagram"
-                ><i class="fa-brands fa-instagram"></i
-              ></a>
+              >
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+
               <a
                 class="social-circle-btn"
                 href="https://linkedin.com/company/easternhimalayascollective"
                 title="LinkedIn"
-                ><i class="fa-brands fa-linkedin-in"></i
-              ></a>
+              >
+                <i class="fa-brands fa-linkedin-in"></i>
+              </a>
+
             </div>
+
           </div>
+
         </div>
+
         <div class="contact-form-panel glass">
-          <!-- Replace YOUR_FORM_ID with your real Formspree form ID -->
+
           <form
             action="https://formsubmit.co/easternhimalayascollective@gmail.com"
             method="POST"
           >
+
             <div class="form-group-row">
+
               <div class="form-control-wrap">
-                <label>Full Name</label
-                ><input
+
+                <label>Full Name</label>
+
+                <input
                   class="form-input-element"
                   name="name"
                   placeholder="Your name"
                   required="required"
                   type="text"
                 />
+
               </div>
+
               <div class="form-control-wrap">
-                <label>Email</label
-                ><input
+
+                <label>Email</label>
+
+                <input
                   class="form-input-element"
                   name="email"
                   placeholder="you@example.com"
                   required="required"
                   type="email"
                 />
+
               </div>
+
             </div>
+
             <div class="form-control-wrap">
-              <label>I&#8217;m reaching out about</label
-              ><input
+
+              <label>
+                I&#8217;m reaching out about
+              </label>
+
+              <input
                 class="form-input-element"
                 name="subject"
                 placeholder="CSR partnership / Volunteering / Farmer group / Other"
                 type="text"
               />
+
             </div>
+
             <div class="form-control-wrap">
-              <label>Message</label
-              ><textarea
+
+              <label>Message</label>
+
+              <textarea
                 class="form-input-element"
                 name="message"
                 required="required"
                 rows="5"
               ></textarea>
+
             </div>
-            <button class="form-submit-btn" type="submit">Send Message</button>
+
+            <button
+              class="form-submit-btn"
+              type="submit"
+            >
+              Send Message
+            </button>
+
           </form>
+
         </div>
+
       </div>
+
     </section>
+
     <footer>
+
       <div class="footer-top-grid">
+
         <div class="footer-brand-col">
+
           <div class="footer-logo-wrap">
+
             <img
               alt="Eastern Himalayas Collective Foundation Logo"
               src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi-VD77COV4Y3CDPLqmvbhAhOFhpCxR3BFfxRCVU7pp00l0VASuM_nHajtcNv6eBOF-6krBp23Z_h6kNCApnWE-xR6qBXw-vX_zQmp7t0VOMT8CXsDzwedbnBREJWZvBLIp9MYqL6CYp8jPPkI8G8QQ1oAT9bdYaCVo9NPd92V9ALe5yc-F0pKgeWeZDQCU/s320/logo-mark-transparent.png"
             />
+
           </div>
-          <div class="footer-logo-text">EASTERN HIMALAYAS COLLECTIVE</div>
+
+          <div class="footer-logo-text">
+            EASTERN HIMALAYAS COLLECTIVE
+          </div>
+
           <p class="footer-mission">
             A Not-for-Profit Organization advancing soil, society, and
             sustainability across the Eastern Himalayan landscape of Northeast
             India.
           </p>
+
         </div>
+
         <div></div>
+
         <div>
-          <h4 class="footer-heading">Stay Updated</h4>
+
+          <h4 class="footer-heading">
+            Stay Updated
+          </h4>
+
           <p class="newsletter-desc">
             Get updates as our pilot program launches.
           </p>
+
           <form
             action="https://formsubmit.co/easternhimalayascollective@gmail.com"
             class="newsletter-form-field"
             method="POST"
           >
+
             <input
               class="newsletter-input"
               name="email"
@@ -1528,80 +2397,193 @@ This is where our journey begins..
               required="required"
               type="email"
             />
-            <button class="newsletter-submit" type="submit">Subscribe</button>
+
+            <button
+              class="newsletter-submit"
+              type="submit"
+            >
+              Subscribe
+            </button>
+
           </form>
+
         </div>
+
       </div>
+
       <div class="footer-bottom-bar">
-        <div>2026 Eastern Himalayas Collective Foundation</div>
-        <div>All Rights Reserved</div>
-        <div>CIN-U94990AR2026NPL014435</div>
-        
+
+        <div>
+          2026 Eastern Himalayas Collective Foundation
+        </div>
+
+        <div>
+          All Rights Reserved
+        </div>
+
+        <div>
+          CIN-U94990AR2026NPL014435
+        </div>
+
       </div>
+
     </footer>
+
     <script type="text/javascript">
       //<![CDATA[
+
       function toggleMobileMenu() {
+
         const menuBtn = document.getElementById("mobileMenuBtn");
         const menu = document.querySelector(".nav-menu");
+
         if (!menuBtn || !menu) return;
+
         const isOpen = menu.classList.toggle("open");
+
         menuBtn.classList.toggle("open", isOpen);
-        menuBtn.setAttribute("aria-expanded", String(isOpen));
-        document.body.classList.toggle("mobile-menu-open", isOpen);
+
+        menuBtn.setAttribute(
+          "aria-expanded",
+          String(isOpen)
+        );
+
+        document.body.classList.toggle(
+          "mobile-menu-open",
+          isOpen
+        );
       }
+
       function closeMobileMenu() {
+
         const menuBtn = document.getElementById("mobileMenuBtn");
         const menu = document.querySelector(".nav-menu");
+
         if (!menuBtn || !menu) return;
+
         menu.classList.remove("open");
+
         menuBtn.classList.remove("open");
-        menuBtn.setAttribute("aria-expanded", "false");
-        document.body.classList.remove("mobile-menu-open");
+
+        menuBtn.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+        document.body.classList.remove(
+          "mobile-menu-open"
+        );
       }
+
       function initMobileMenu() {
+
         const header = document.getElementById("mainHeader");
+
         if (header) {
-          window.addEventListener("scroll", function () {
-            header.style.boxShadow =
-              window.scrollY > 50 ? "0 4px 30px rgba(0, 0, 0, 0.06)" : "none";
-          });
+
+          window.addEventListener(
+            "scroll",
+            function () {
+
+              header.style.boxShadow =
+                window.scrollY > 50
+                  ? "0 4px 30px rgba(0, 0, 0, 0.06)"
+                  : "none";
+
+            }
+          );
+
         }
-        const menuBtn = document.getElementById("mobileMenuBtn");
-        const menu = document.querySelector(".nav-menu");
+
+        const menuBtn =
+          document.getElementById("mobileMenuBtn");
+
+        const menu =
+          document.querySelector(".nav-menu");
+
         if (menuBtn && menu) {
-          menuBtn.addEventListener("keydown", function (event) {
-            if (event.key === "Enter" || event.key === " ") {
-              event.preventDefault();
-              toggleMobileMenu();
+
+          menuBtn.addEventListener(
+            "keydown",
+            function (event) {
+
+              if (
+                event.key === "Enter" ||
+                event.key === " "
+              ) {
+
+                event.preventDefault();
+
+                toggleMobileMenu();
+
+              }
+
             }
-          });
-          menu.querySelectorAll("a").forEach(function (link) {
-            link.addEventListener("click", function () {
-              closeMobileMenu();
-            });
-          });
-          window.addEventListener("resize", function () {
-            if (window.innerWidth > 768 && menu.classList.contains("open")) {
-              closeMobileMenu();
+          );
+
+          menu.querySelectorAll("a").forEach(
+            function (link) {
+
+              link.addEventListener(
+                "click",
+                function () {
+                  closeMobileMenu();
+                }
+              );
+
             }
-          });
-          document.addEventListener("click", function (event) {
-            if (
-              !menu.contains(event.target) &&
-              !menuBtn.contains(event.target) &&
-              menu.classList.contains("open")
-            ) {
-              closeMobileMenu();
+          );
+
+          window.addEventListener(
+            "resize",
+            function () {
+
+              if (
+                window.innerWidth > 768 &&
+                menu.classList.contains("open")
+              ) {
+
+                closeMobileMenu();
+
+              }
+
             }
-          });
+          );
+
+          document.addEventListener(
+            "click",
+            function (event) {
+
+              if (
+                !menu.contains(event.target) &&
+                !menuBtn.contains(event.target) &&
+                menu.classList.contains("open")
+              ) {
+
+                closeMobileMenu();
+
+              }
+
+            }
+          );
+
         }
+
       }
+
       if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", initMobileMenu);
+
+        document.addEventListener(
+          "DOMContentLoaded",
+          initMobileMenu
+        );
+
       } else {
+
         initMobileMenu();
+
       }
+
       //]]>
     </script>
 
@@ -1609,13 +2591,16 @@ This is where our journey begins..
       type="text/javascript"
       src="https://www.blogger.com/static/v1/widgets/3432011497-widgets.js"
     ></script>
+
     <script type="text/javascript">
       window["__wavt"] = "ACvIOeCpMVvqHTkbXvD1pUYTvGMl:1785652394417";
+
       _WidgetManager._Init(
         "//www.blogger.com/rearrange?blogID\x3d7633210992011695455",
         "//www.easternhimalayascollective.org/",
         "7633210992011695455",
       );
+
       _WidgetManager._SetDataContext([
         {
           name: "blog",
@@ -1625,8 +2610,10 @@ This is where our journey begins..
             url: "https://www.easternhimalayascollective.org/",
             canonicalUrl: "https://www.easternhimalayascollective.org/",
             homepageUrl: "https://www.easternhimalayascollective.org/",
-            searchUrl: "https://www.easternhimalayascollective.org/search",
-            canonicalHomepageUrl: "https://www.easternhimalayascollective.org/",
+            searchUrl:
+              "https://www.easternhimalayascollective.org/search",
+            canonicalHomepageUrl:
+              "https://www.easternhimalayascollective.org/",
             blogspotFaviconUrl:
               "https://www.easternhimalayascollective.org/favicon.ico",
             bloggerUrl: "https://www.blogger.com",
@@ -1660,7 +2647,8 @@ This is where our journey begins..
               "//www.blogblog.com/dynamicviews/4224c15c4e7c9321/js/comments.js",
             dynamicViewsScriptSrc:
               "//www.blogblog.com/dynamicviews/d046e0cddf00ec44",
-            plusOneApiSrc: "https://apis.google.com/js/platform.js",
+            plusOneApiSrc:
+              "https://apis.google.com/js/platform.js",
             disableGComments: true,
             interstitialAccepted: false,
             sharing: {
@@ -1705,7 +2693,7 @@ This is where our journey begins..
               disableGooglePlus: true,
               googlePlusShareButtonWidth: 0,
               googlePlusBootstrap:
-                "\x3cscript type\x3d\x22text/javascript\x22\x3ewindow.___gcfg \x3d {\x27lang\x27: \x27en\x27};\x3c/script\x3e",
+                "\x3cscript type\x3d\x22text/javascript\x3ewindow.___gcfg \x3d {\x27lang\x27: \x27en\x27};\x3c/script\x3e",
             },
             hasCustomJumpLinkMessage: false,
             jumpLinkMessage: "Read more",
@@ -1714,16 +2702,23 @@ This is where our journey begins..
             pageTitle: "EASTERN HIMALAYAS COLLECTIVE",
           },
         },
-        { name: "features", data: {} },
+
+        {
+          name: "features",
+          data: {},
+        },
+
         {
           name: "messages",
           data: {
             edit: "Edit",
-            linkCopiedToClipboard: "Link copied to clipboard!",
+            linkCopiedToClipboard:
+              "Link copied to clipboard!",
             ok: "Ok",
             postLink: "Post Link",
           },
         },
+
         {
           name: "template",
           data: {
@@ -1734,16 +2729,38 @@ This is where our journey begins..
             isCustom: true,
           },
         },
+
         {
           name: "view",
           data: {
-            classic: { name: "classic", url: "?view\x3dclassic" },
-            flipcard: { name: "flipcard", url: "?view\x3dflipcard" },
-            magazine: { name: "magazine", url: "?view\x3dmagazine" },
-            mosaic: { name: "mosaic", url: "?view\x3dmosaic" },
-            sidebar: { name: "sidebar", url: "?view\x3dsidebar" },
-            snapshot: { name: "snapshot", url: "?view\x3dsnapshot" },
-            timeslide: { name: "timeslide", url: "?view\x3dtimeslide" },
+            classic: {
+              name: "classic",
+              url: "?view\x3dclassic",
+            },
+            flipcard: {
+              name: "flipcard",
+              url: "?view\x3dflipcard",
+            },
+            magazine: {
+              name: "magazine",
+              url: "?view\x3dmagazine",
+            },
+            mosaic: {
+              name: "mosaic",
+              url: "?view\x3dmosaic",
+            },
+            sidebar: {
+              name: "sidebar",
+              url: "?view\x3dsidebar",
+            },
+            snapshot: {
+              name: "snapshot",
+              url: "?view\x3dsnapshot",
+            },
+            timeslide: {
+              name: "timeslide",
+              url: "?view\x3dtimeslide",
+            },
             isMobile: false,
             title: "EASTERN HIMALAYAS COLLECTIVE",
             description: "",
@@ -1756,10 +2773,15 @@ This is where our journey begins..
             isPost: false,
             isHomepage: true,
             isArchive: false,
+            isPage: false,
+            isPost: false,
+            isHomepage: true,
+            isArchive: false,
             isLabelSearch: false,
           },
         },
       ]);
+
       _WidgetManager._RegisterWidget(
         "_BlogView",
         new _WidgetInfo(
@@ -1779,5 +2801,6 @@ This is where our journey begins..
         ),
       );
     </script>
+
   </body>
 </html>
