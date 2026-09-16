@@ -1963,34 +1963,277 @@
 
     </section>
 
-    <!-- =========================================================
-     BLOG / UPDATES
-     ========================================================= -->
+     <!-- =========================================================
+         LIVE BLOGGER FIELD UPDATES
+         Blogger source: https://ehcfupdates.blogspot.com
+         New Blogger posts appear here automatically.
+         ========================================================= -->
+    <section class="section-padding blog-section" id="blog">
+      <div class="section-title-wrap">
+        <span class="section-subtitle">Field Updates</span>
+        <h2 class="section-main-title">Updates From the Ground</h2>
+        <p class="section-desc">
+          Stories, field notes, and updates from the work of Eastern Himalayas Collective Foundation.
+        </p>
+      </div>
 
-<section class="section-padding blog-section" id="blog">
+      <div class="blog-grid-container">
+        <div
+          class="ehcf-blogger-status"
+          id="ehcfBloggerStatus"
+          aria-live="polite"
+        >
+          Loading field updates...
+        </div>
+        <div class="ehcf-blogger-grid" id="ehcfBloggerGrid"></div>
+      </div>
 
-  <div class="section-title-wrap">
+      <div class="blogger-view-all-wrap">
+        <a
+          class="btn-primary"
+          id="ehcfBloggerViewAll"
+          href="https://ehcfupdates.blogspot.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View All Field Updates
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </section>
 
-    <span class="section-subtitle">
-      Field Updates
-    </span>
+    <script type="text/javascript">
+      //<![CDATA[
+      /* =========================================================
+         EHCF LIVE BLOGGER FIELD UPDATES
 
-    <h2 class="section-main-title">
-      Updates From the Ground
-    </h2>
+         Blogger blog:
+         https://ehcfupdates.blogspot.com/
 
-    <p class="section-desc">
-      Posts will appear here automatically once we publish them.
-    </p>
+         The website reads the public Blogger JSON feed through JSONP.
+         Publish a new post on Blogger and it will automatically appear
+         in the "Updates From the Ground" section of this website.
+         No GitHub HTML editing is required for future posts.
+         ========================================================= */
+      (function () {
+        "use strict";
 
-  </div>
+        var BLOGGER_URL = "https://ehcfupdates.blogspot.com";
+        var FEED_URL = BLOGGER_URL + "/feeds/posts/default";
+        var LIMIT = 6;
 
-  <div class="blog-grid-container">
-    <div
-      class="no-items section"
-      id="Blog_Homepage_Section"
-    ></div>
-  </div>
+        var grid = document.getElementById("ehcfBloggerGrid");
+        var status = document.getElementById("ehcfBloggerStatus");
+        var viewAll = document.getElementById("ehcfBloggerViewAll");
+
+        if (!grid || !status) {
+          console.error("EHCF Blogger: blog containers were not found.");
+          return;
+        }
+
+        if (viewAll) {
+          viewAll.href = BLOGGER_URL + "/";
+          viewAll.target = "_blank";
+          viewAll.rel = "noopener noreferrer";
+        }
+
+        /* Blogger JSONP callback */
+        window.EHCFBloggerFeed = function (data) {
+          var entries =
+            data && data.feed && data.feed.entry
+              ? data.feed.entry
+              : [];
+
+          if (!entries.length) {
+            status.textContent =
+              "No field updates have been published yet.";
+            return;
+          }
+
+          grid.innerHTML = "";
+
+          entries.slice(0, LIMIT).forEach(function (entry) {
+            grid.appendChild(buildCard(entry));
+          });
+
+          status.style.display = "none";
+        };
+
+        /* Load Blogger's public JSON feed */
+        var feedScript = document.createElement("script");
+        feedScript.type = "text/javascript";
+        feedScript.async = true;
+        feedScript.src =
+          FEED_URL +
+          "?alt=json-in-script&max-results=" +
+          LIMIT +
+          "&callback=EHCFBloggerFeed";
+
+        feedScript.onerror = function () {
+          status.textContent =
+            "Field updates could not be loaded at this time. Please try again shortly.";
+          console.error("EHCF Blogger: feed could not be loaded.");
+        };
+
+        document.body.appendChild(feedScript);
+
+        /* =========================================================
+           BUILD BLOG CARD
+           ========================================================= */
+        function buildCard(entry) {
+          var article = document.createElement("article");
+          article.className = "ehcf-blogger-card";
+
+          var title = getText(entry.title) || "Field Update";
+          var url = getPostUrl(entry);
+          var content = getContent(entry);
+          var image = getFirstImage(content);
+
+          if (!image) {
+            image =
+              "https://images.unsplash.com/photo-1589808015717-a626de258af0?auto=format&fit=crop&q=80&w=1000";
+          }
+
+          var excerpt = stripHtml(content)
+            .replace(/\s+/g, " ")
+            .trim();
+
+          if (excerpt.length > 180) {
+            excerpt = excerpt.substring(0, 180).trim() + "...";
+          }
+
+          if (!excerpt) {
+            excerpt =
+              "Read the latest field update from Eastern Himalayas Collective Foundation.";
+          }
+
+          var date = entry.published
+            ? formatDate(entry.published.$t)
+            : "";
+
+          /* Image */
+          var imageLink = document.createElement("a");
+          imageLink.className = "ehcf-blogger-image-link";
+          imageLink.href = url;
+          imageLink.target = "_blank";
+          imageLink.rel = "noopener noreferrer";
+
+          var img = document.createElement("img");
+          img.className = "ehcf-blogger-image";
+          img.src = image;
+          img.alt = title;
+          img.loading = "lazy";
+
+          imageLink.appendChild(img);
+
+          /* Body */
+          var body = document.createElement("div");
+          body.className = "ehcf-blogger-body";
+
+          var dateEl = document.createElement("span");
+          dateEl.className = "ehcf-blogger-date";
+          dateEl.textContent = date;
+
+          var heading = document.createElement("h3");
+          heading.className = "ehcf-blogger-title";
+
+          var titleLink = document.createElement("a");
+          titleLink.href = url;
+          titleLink.target = "_blank";
+          titleLink.rel = "noopener noreferrer";
+          titleLink.textContent = title;
+
+          heading.appendChild(titleLink);
+
+          var paragraph = document.createElement("p");
+          paragraph.className = "ehcf-blogger-excerpt";
+          paragraph.textContent = excerpt;
+
+          var readLink = document.createElement("a");
+          readLink.className = "ehcf-blogger-read";
+          readLink.href = url;
+          readLink.target = "_blank";
+          readLink.rel = "noopener noreferrer";
+          readLink.innerHTML =
+            'Read Update <i class="fa-solid fa-arrow-right"></i>';
+
+          body.appendChild(dateEl);
+          body.appendChild(heading);
+          body.appendChild(paragraph);
+          body.appendChild(readLink);
+
+          article.appendChild(imageLink);
+          article.appendChild(body);
+
+          return article;
+        }
+
+        /* =========================================================
+           HELPERS
+           ========================================================= */
+        function getText(value) {
+          return value && value.$t ? value.$t : "";
+        }
+
+        function getContent(entry) {
+          if (entry.content && entry.content.$t) {
+            return entry.content.$t;
+          }
+
+          if (entry.summary && entry.summary.$t) {
+            return entry.summary.$t;
+          }
+
+          return "";
+        }
+
+        function getPostUrl(entry) {
+          var links = entry.link || [];
+
+          for (var i = 0; i < links.length; i++) {
+            if (links[i].rel === "alternate" && links[i].href) {
+              return links[i].href;
+            }
+          }
+
+          return BLOGGER_URL + "/";
+        }
+
+        function stripHtml(html) {
+          var div = document.createElement("div");
+          div.innerHTML = html || "";
+          return div.textContent || div.innerText || "";
+        }
+
+        function getFirstImage(html) {
+          var div = document.createElement("div");
+          div.innerHTML = html || "";
+
+          var img = div.querySelector("img");
+
+          if (img && img.src) {
+            return img.src;
+          }
+
+          return null;
+        }
+
+        function formatDate(value) {
+          var date = new Date(value);
+
+          if (isNaN(date.getTime())) {
+            return "";
+          }
+
+          return date.toLocaleDateString("en-IN", {
+            day: "numeric",
+            month: "long",
+            year: "numeric"
+          });
+        }
+      })();
+      //]]>
+    </script>
     </section>
 
     <section class="section-padding" id="gallery">
