@@ -1,5 +1,3 @@
-
-
 <!doctype html>
 <html
   xmlns="http://www.w3.org/1999/xhtml"
@@ -301,6 +299,93 @@
       .partner-card h4 { font-size: 1rem; color: var(--forest-green); }
       .partner-card p { font-size: 0.86rem; color: var(--text-muted); }
       .partner-cta-row { text-align: center; margin-top: 3rem; }
+
+      /* =========================================================
+         PARTNER LOGOS MARQUEE (scrolls right to left, auto-loops)
+         ========================================================= */
+      .partner-logos-section {
+      background: var(--soft-beige);
+      padding: 4rem 0 4.5rem;
+      overflow: hidden;
+      position: relative;
+      }
+
+      .partner-logos-section::before,
+      .partner-logos-section::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 90px;
+      z-index: 2;
+      pointer-events: none;
+      }
+      .partner-logos-section::before { left: 0; background: linear-gradient(to right, var(--soft-beige), rgba(244,239,230,0)); }
+      .partner-logos-section::after { right: 0; background: linear-gradient(to left, var(--soft-beige), rgba(244,239,230,0)); }
+
+      .partner-logos-track-wrap { overflow: hidden; width: 100%; }
+
+      .partner-logos-track {
+      display: flex;
+      align-items: center;
+      gap: 2.2rem;
+      width: max-content;
+      animation: partnerLogosScroll 26s linear infinite;
+      }
+
+      .partner-logos-track:hover { animation-play-state: paused; }
+
+      .partner-logo-item {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      padding: 1rem 1.7rem;
+      background: #fff;
+      border-radius: 14px;
+      border: 1px solid rgba(61,90,70,0.1);
+      box-shadow: 0 8px 20px rgba(30,63,32,0.06);
+      white-space: nowrap;
+      flex-shrink: 0;
+      }
+
+      .partner-logo-item img {
+      height: 46px;
+      width: auto;
+      max-width: 130px;
+      object-fit: contain;
+      }
+
+      .partner-logo-fallback-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--forest-green);
+      color: #fff;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      flex-shrink: 0;
+      }
+
+      .partner-logo-name {
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--forest-green);
+      line-height: 1.3;
+      }
+
+      @keyframes partnerLogosScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+      }
+
+      @media(max-width: 560px) {
+      .partner-logo-item { padding: 0.8rem 1.2rem; gap: 0.7rem; }
+      .partner-logo-item img { height: 38px; max-width: 100px; }
+      .partner-logo-fallback-icon { width: 38px; height: 38px; font-size: 1rem; }
+      .partner-logo-name { font-size: 0.8rem; }
+      }
  
       /* =========================================================
          MEET OUR TEAM
@@ -404,7 +489,6 @@
  
       .team-scroll-btn {
       position: absolute;
-      right: -12px;
       top: 42%;
       transform: translateY(-50%);
       width: 52px;
@@ -425,10 +509,12 @@
       -webkit-backdrop-filter: blur(10px);
       }
  
+      .team-scroll-btn.next { right: -12px; }
+      .team-scroll-btn.prev { left: -12px; }
+ 
       .team-scroll-btn:hover {
       background: var(--forest-green);
       color: #fff;
-      transform: translateY(-50%) translateX(3px);
       }
  
       .team-scroll-btn:active {
@@ -457,9 +543,8 @@
       .team-photo-wrap {
       height: 270px;
       }
-      .team-scroll-btn {
-      right: 4px;
-      }
+      .team-scroll-btn.next { right: 4px; }
+      .team-scroll-btn.prev { left: 4px; }
       }
  
       @media(max-width: 560px) {
@@ -485,9 +570,11 @@
       .team-scroll-btn {
       width: 46px;
       height: 46px;
-      right: 2px;
       top: 40%;
       }
+ 
+      .team-scroll-btn.next { right: 2px; }
+      .team-scroll-btn.prev { left: 2px; }
  
       .team-scroll-hint {
       margin-top: 0.5rem;
@@ -1332,12 +1419,6 @@
             "
           ></span>
         </div>
-                <div class="hero-slide">
-          <span
-            style="
-              background-image: url(https://photos.google.com/photo/AF1QipPfFDbnYMadVgHAC12FnR7cPOE16Phf5BA8NB7p);
-            "
-          ></span>
  
       </div>
  
@@ -1956,6 +2037,72 @@
     </section>
  
     <!-- =========================================================
+         PARTNER LOGOS MARQUEE
+         These are our current working partners, scrolling
+         automatically right to left.
+
+         TO ADD YOUR REAL LOGOS: replace each src="REPLACE-..."
+         below with the direct URL (or /images/yourlogo.png path)
+         to that organization's actual logo file. Until you do,
+         a small icon + the organization's name is shown instead,
+         so the layout never looks broken.
+         ========================================================= -->
+    <section class="partner-logos-section" id="partner-logos">
+
+      <div class="section-title-wrap" style="margin-bottom: 2rem;">
+        <span class="section-subtitle">Working Together</span>
+        <h2 class="section-main-title" style="font-size: 2rem;">Our Partners</h2>
+      </div>
+
+      <div class="partner-logos-track-wrap">
+        <div class="partner-logos-track" id="partnerLogosTrack">
+
+          <div class="partner-logo-item">
+            <img
+              alt="Assam Forest Department logo"
+              src="https://scontent.fgau3-3.fna.fbcdn.net/v/t39.30808-6/351109942_274206044973973_4357655062907505876_n.jpg?stp=dst-jpg_tt6&cstp=mx902x1106&ctp=s902x1106&_nc_cat=108&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=KpYDo5Bl8OsQ7kNvwF0kGiB&_nc_oc=AdroZ8kHZuSVn8Jm8n2V-MrUd0kyUO2SIbZLEtB3jXO9L4m53c5taOHfk0c1XF4FgeweCXFbVIMtiR9_7iBq31ht&_nc_zt=23&_nc_ht=scontent.fgau3-3.fna&_nc_gid=4wUjp-76t1_w_tujY4bFVQ&_nc_ss=7b2a8&oh=00_AQIE9xM1FP0AloPR-l6kZIdYijBKqOBsSndhznLKjtuiFw&oe=6ABD3507"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+            />
+            <div class="partner-logo-fallback-icon">
+              <i class="fa-solid fa-tree"></i>
+            </div>
+            <span class="partner-logo-name">Assam Forest Department</span>
+          </div>
+
+          <div class="partner-logo-item">
+            <img
+              alt="Krishi Vigyan Kendra, Lakhimpur logo"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTUrW5ajXHqBgRGsWXAkAL4DNZ7QEd5gOz5WqKBNl32-ZplycboyXmr08&s=10"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+            />
+            <div class="partner-logo-fallback-icon">
+              <i class="fa-solid fa-seedling"></i>
+            </div>
+            <span class="partner-logo-name">KVK Lakhimpur</span>
+          </div>
+
+          <div class="partner-logo-item">
+            <img
+              alt="Lakhimpur Medical College logo"
+              src="https://caderaedu.del1.vultrobjects.com/colleges/870c4707-38bd-4926-9bfe-a07e8947aefc.webp"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+            />
+            <div class="partner-logo-fallback-icon">
+              <i class="fa-solid fa-hospital"></i>
+            </div>
+            <span class="partner-logo-name">Lakhimpur Medical College</span>
+          </div>
+
+          <!-- duplicate set — required for a seamless infinite loop, do not remove -->
+
+        
+
+        </div>
+      </div>
+
+    </section>
+ 
+    <!-- =========================================================
          MEET OUR TEAM
          ========================================================= -->
  
@@ -1989,7 +2136,7 @@
  
             <div class="team-photo-wrap">
               <img
-                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=700"
+                src="https://blogger.googleusercontent.com/img/a/AVvXsEgnSgh0iPmgib5wZwm98RR07cC2QejyCmbDw5v9lSFDK0zp3s7bUpogbWN9-bEP2H0qPdGLtsDhQQU-R9akUdDlQVaGAYTQ6bZxy6FwBABXUNriNr0PmevbQwPCh9errY6-x2ey5Sbw0eWgqKVqKkHWyaZwDCJEN7GV8ACx83uBNk-ciEpdDfIZ111V13qK"
                 alt="Team member"
               />
             </div>
@@ -1997,17 +2144,17 @@
             <div class="team-card-body">
  
               <h3 class="team-name">
-                Team Member One
+                Hage Ering
               </h3>
  
               <span class="team-role">
-                Founder / Director
+                Co-Founder & Director
               </span>
  
               <p class="team-intro">
-                A short introduction about the team member, their role,
-                experience, and contribution to the work of Eastern Himalayas
-                Collective.
+                Hage Ering, from Arunachal Pradesh, is a Co-Founder & Director of EHCF. His regional understanding strengthens the Foundation’s connection with local communities and stakeholders across the Eastern Himalayas.
+
+.
               </p>
  
             </div>
@@ -2021,7 +2168,7 @@
  
             <div class="team-photo-wrap">
               <img
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=700"
+                src="https://blogger.googleusercontent.com/img/a/AVvXsEg9HDXjpef0RrhginkNUs3f1DT1YoPo9246DnWSbSFlDdLjkezXSOohc_xsyuIVPD_GXK6w27qfUIdIJhajucjLPmpoUshTc52mh7yNIUQK4TLkmSAtFylgFKyTvlbWTyR2Je42j-MaIac2PIRB_7CEgJKXUpeq59MP3DyfJ6pGkqL25AjOd1dd-NsfoGMd"
                 alt="Team member"
               />
             </div>
@@ -2029,17 +2176,16 @@
             <div class="team-card-body">
  
               <h3 class="team-name">
-                Team Member Two
+                Amar Bhanu Dutta
               </h3>
  
               <span class="team-role">
-                Director / Field Engagement
+               Co-Founder / Managing Director
               </span>
  
               <p class="team-intro">
-                A short introduction about the team member, their field
-                experience, community engagement, and contribution to EHCF
-                programmes.
+                Amar Bhanu Dutta is a Co-Founder & Managing Director of EHCF and an Advocate by profession based in Guwahati. He works towards advancing the Foundation’s vision and sustainable development initiatives across the Eastern Himalayas.
+
               </p>
  
             </div>
@@ -2053,7 +2199,7 @@
  
             <div class="team-photo-wrap">
               <img
-                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=700"
+                src="https://blogger.googleusercontent.com/img/a/AVvXsEhYbrGzVcaiyUBRwf5IiiiCfpyWbmum_fl4yHXda44KiuqLA1B0jgSZjB7IWvOySwi2TAPq4DDmYqxi03HKQnzlrCg_xTpfTi1LxN4EhqKzJoi-DZf-ZjGbXnHidvJth9igcMiA7VrVvpp15vE69kgqlUtRPBD60qYZDFDCrEljLXs4HxNvMAK9UTf87xbq"
                 alt="Team member"
               />
             </div>
@@ -2061,16 +2207,15 @@
             <div class="team-card-body">
  
               <h3 class="team-name">
-                Team Member Three
+                Johny Gogoi
               </h3>
  
               <span class="team-role">
-                Programme &amp; Community
+                Co-Founder / Executive Director
               </span>
  
               <p class="team-intro">
-                A short introduction about the team member, their programme
-                responsibilities, local knowledge, and work with communities.
+                Johnny Gogoi is an engineer-turned-farmer from Lakhimpur, Assam bringing practical experience in agriculture and a strong connection with farming  and local communities.
               </p>
  
             </div>
@@ -2084,7 +2229,7 @@
  
             <div class="team-photo-wrap">
               <img
-                src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=700"
+                src="https://blogger.googleusercontent.com/img/a/AVvXsEhr6jUGrN6p-VC9glGIlW6r0lL8rw7G47Z4_APmHV8lgF2wgqReZWq8QYoleuoskD7ClQtbKDijoh4aNVz22X0-BgmXVK_QAL-enAT_PHgZf3lgaH1RnqDcvLKJqyCNJE40mjDknhGpYVpJO_UFS2jGCI8Nz7t4iZCYo_tKQMgT_1LMDfMkSQY-Tfbpl_5X"
                 alt="Team member"
               />
             </div>
@@ -2092,33 +2237,182 @@
             <div class="team-card-body">
  
               <h3 class="team-name">
-                Team Member Four
+                Miss Singdha Saikia
               </h3>
  
               <span class="team-role">
-                Outreach &amp; Partnerships
+                Outreach Head
               </span>
  
               <p class="team-intro">
-                A short introduction about the team member, their work in
-                outreach, communications, partnerships, or institutional
-                coordination.
+                Snigdha Saikia, from Sivasagar, Assam, has years of experience in the social sector. She focuses on community engagement, outreach, and building meaningful partnerships for EHCF.
+.
               </p>
  
             </div>
  
           </div>
  
+ 
+          <!-- TEAM MEMBER 05
+               Replace image URL, name, role and introduction -->
+          <div class="team-card">
+ 
+            <div class="team-photo-wrap">
+              <img
+                src="https://blogger.googleusercontent.com/img/a/AVvXsEhbC2u5gK77t251iZXHO4nuJwkUtAeQiQddnhkJOfxwam0BdhQ0Cq5_Uh2osjZf6YLe8qqAxgJPZcuYcvCdgyJv0yupP04lgz5qLK1MWtb0NR4LEmO0LloZpcO0wqJNM_UuaKtMlJ8uUxAbDKmDwCHxQyx8NG5Kuu8uVRrIJhDhxORAqtiqVLSuwEniD4Ry"
+                alt="Team member"
+              />
+            </div>
+ 
+            <div class="team-card-body">
+ 
+              <h3 class="team-name">
+                Ringsodao Langthasa
+              </h3>
+ 
+              <span class="team-role">
+                Research Head
+              </span>
+ 
+              <p class="team-intro">
+                Ringsodao Langthasa, from Umrangso, is a Research Scholar working with EHCF on geography, GIS, and research. He supports spatial analysis, field research, and knowledge development for the Foundation’s initiatives.
+.
+              </p>
+ 
+            </div>
+ 
+          </div>
+ 
+ 
+          <!-- TEAM MEMBER 06
+               Replace image URL, name, role and introduction -->
+          <div class="team-card">
+ 
+            <div class="team-photo-wrap">
+              <img
+                src="https://blogger.googleusercontent.com/img/a/AVvXsEgdCZAJCsqpr8fKj4y7SfHXgG0k5Gt6FDr3P48V22rYr_eyCfi9DdpUMJNDkeBYJbl4RY4dukZx6WP5eI9Z3couZ-8pYg7RY6qateFgTNawHyBpKGjllSpVP1Hqq54Phz4k8B09N7v4puol7dMAAdYYYuZt0ooiyE5oqrAJxsyr-7CdCxRfXH_-V9lXQY9X"
+                alt="Team member"
+              />
+            </div>
+ 
+            <div class="team-card-body">
+ 
+              <h3 class="team-name">
+Basanta Gogoi              </h3>
+ 
+              <span class="team-role">
+                Program coordinator
+              </span>
+ 
+              <p class="team-intro">
+               Basanta Gogoi is a teacher, craftsman, and artist with a deep knowledge of art and craft. As Program Coordinator, he supports EHCF’s field activities, community engagement, and program implementation.
+
+              </p>
+ 
+            </div>
+ 
+          </div>
+ 
+ 
+          <!-- TEAM MEMBER 07
+               Replace image URL, name, role and introduction -->
+          <div class="team-card">
+ 
+            <div class="team-photo-wrap">
+              <img
+                src="https://blogger.googleusercontent.com/img/a/AVvXsEjuYx06XhwYok84n7Z4zA0lBt_IDmd0ng9iye2Qd0tdxsreC_NlHYmhY7W3a0kkCgGTsWcP-UPITDe8XPMmZNluPd9UpK3NCsZQayb82fGjYrGpBtwSJdvduzYmFnHzcuorpZBtgtxCFP1ja72r_cH3sAnIP-hW01INu6CU9Wrvy0Ug7p4jU20OeDaHQcKQ"
+                alt="Team member"
+              />
+            </div>
+ 
+            <div class="team-card-body">
+ 
+              <h3 class="team-name">
+                Miss Devi Thapa
+              </h3>
+ 
+              <span class="team-role">
+                Social Media Coordinator
+              </span>
+ 
+              <p class="team-intro">
+               Devi Thapa is a Social Media Coordinator with a keen interest in nature, youth, and digital communication. She supports EHCF’s online presence and community engagement.
+
+              </p>
+ 
+            </div>
+ 
+ 
+          </div>
+ 
+ 
+          <!-- =====================================================
+               HOW TO ADD ANOTHER TEAM MEMBER
+ 
+               This slider has no limit — just copy the ENTIRE block
+               below (from "<div class="team-card">" down to its
+               closing "</div>"), paste it right above this comment,
+               and edit the three things marked:
+                 1) the img src (their photo)
+                 2) the team-name text (their name)
+                 3) the team-role text and team-intro paragraph
+
+               Every new block you paste automatically becomes the
+               next card in the row — the arrows and side-scrolling
+               will keep working no matter how many you add.
+               =====================================================
+
+          <div class="team-card">
+
+            <div class="team-photo-wrap">
+              <img
+                src="PASTE-NEW-MEMBER-PHOTO-URL-HERE.jpg"
+                alt="Team member"
+              />
+            </div>
+
+            <div class="team-card-body">
+
+              <h3 class="team-name">
+                New Member Name
+              </h3>
+
+              <span class="team-role">
+                Their Role / Title
+              </span>
+
+              <p class="team-intro">
+                A short introduction about the team member, their role,
+                experience, and contribution to the work of Eastern
+                Himalayas Collective.
+              </p>
+
+            </div>
+
+          </div>
+
+          ===================================================== -->
+ 
         </div>
  
  
-        <!-- RIGHT SIDE SCROLL ARROW -->
+        <!-- SCROLL ARROWS — work no matter how many members are added -->
  
         <button
-          class="team-scroll-btn"
+          class="team-scroll-btn prev"
+          type="button"
+          aria-label="View previous team members"
+          onclick="scrollTeamMembers(-1)"
+        >
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+ 
+        <button
+          class="team-scroll-btn next"
           type="button"
           aria-label="View more team members"
-          onclick="scrollTeamMembers()"
+          onclick="scrollTeamMembers(1)"
         >
           <i class="fa-solid fa-arrow-right"></i>
         </button>
@@ -2539,7 +2833,9 @@
        * continue moving through the list.
        */
  
-      function scrollTeamMembers() {
+      function scrollTeamMembers(direction) {
+        direction = direction || 1;
+
         var slider = document.getElementById("teamSlider");
  
         if (!slider) return;
@@ -2552,7 +2848,7 @@
         var gap = 24;
  
         slider.scrollBy({
-          left: cardWidth + gap,
+          left: (cardWidth + gap) * direction,
           behavior: "smooth"
         });
       }
@@ -3045,7 +3341,3 @@
  
   </body>
 </html>
- 
-Cookie settings
-We use cookies to deliver and improve our services, analyze site usage, and if you agree, to customize or personalize your experience and market our services to you. You can read our Cookie Policy here.
-
