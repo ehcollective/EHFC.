@@ -290,6 +290,70 @@
       .launch-note { max-width: 720px; margin: 0 auto; text-align: center; padding: 2.6rem; border-radius: var(--radius-lg); }
       .launch-note p { font-size: 1.05rem; line-height: 1.7; color: rgba(253,251,247,0.9); }
       .launch-note .eyebrow-white { font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; color: #E2A088; font-weight: 700; margin-bottom: 1rem; display:block; }
+
+      /* =========================================================
+         OUR IMPACT (NUMBERS) — animated counters   [NEW]
+         ========================================================= */
+      .impact-numbers-section {
+      background: linear-gradient(rgba(18,40,26,0.94), rgba(18,40,26,0.96)),
+                  url('https://images.unsplash.com/photo-1628070018796-a9f4e2dd482a?auto=format&fit=crop&q=80&w=1600') no-repeat center center/cover;
+      color: #fff;
+      max-width: none;
+      }
+      .impact-numbers-inner { max-width: 1300px; margin: 0 auto; }
+      .impact-numbers-section .section-main-title { color: #fff; }
+      .impact-numbers-section .section-subtitle { color: #E2A088; }
+      .impact-numbers-section .section-desc { color: rgba(253,251,247,0.78); }
+
+      .impact-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.6rem;
+      }
+      .impact-stat-card {
+      text-align: center;
+      padding: 2.4rem 1.5rem;
+      border-radius: var(--radius-lg);
+      transition: var(--transition);
+      }
+      .impact-stat-card:hover { transform: translateY(-6px); }
+      .impact-stat-icon {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 1.1rem;
+      border-radius: 50%;
+      background: var(--sun-orange);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      box-shadow: 0 8px 22px rgba(217,72,30,0.35);
+      }
+      .impact-stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.2rem;
+      font-weight: 700;
+      line-height: 1.1;
+      color: #fff;
+      }
+      .impact-stat-number .impact-suffix { color: #E2A088; }
+      .impact-stat-label {
+      margin-top: 0.6rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--soft-beige);
+      }
+      .impact-stat-note {
+      margin-top: 0.5rem;
+      font-size: 0.86rem;
+      color: rgba(253,251,247,0.65);
+      }
+      @media(max-width: 560px) {
+      .impact-stat-number { font-size: 2.6rem; }
+      }
  
       .partner-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.4rem; }
       .partner-card { padding: 1.7rem; border-radius: var(--radius-md); display: flex; flex-direction: column; gap: 0.7rem; transition: var(--transition); }
@@ -801,6 +865,84 @@
       .gallery-item:hover .gallery-overlay { opacity: 1; }
       .gallery-text { color: #fff; font-size: 1.02rem; font-family: 'Playfair Display', serif; }
       .gallery-text small { display: block; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.7rem; letter-spacing: 1.5px; text-transform: uppercase; color: #E2A088; margin-top: 4px; }
+
+      /* =========================================================
+         LANDSCAPE GALLERY — horizontal slider   [NEW]
+         ========================================================= */
+      .gallery-slider-wrap { position: relative; width: 100%; }
+
+      .gallery-slider {
+      display: flex;
+      gap: 1.5rem;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-behavior: smooth;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding: 0.5rem 0.3rem 1.5rem;
+      }
+      .gallery-slider::-webkit-scrollbar { display: none; }
+
+      .gallery-slide {
+      position: relative;
+      flex: 0 0 calc(33.333% - 1rem);
+      min-width: 290px;
+      height: 340px;
+      scroll-snap-align: start;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 10px 28px rgba(30,63,32,0.1);
+      cursor: pointer;
+      background: var(--soft-beige);
+      }
+      .gallery-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+      }
+      .gallery-slide:hover img { transform: scale(1.08); }
+      .gallery-slide .gallery-overlay { opacity: 1; background: linear-gradient(to top, rgba(14,30,16,0.82), transparent 50%); }
+
+      .gallery-scroll-btn {
+      position: absolute;
+      top: 42%;
+      transform: translateY(-50%);
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.8);
+      background: rgba(253,251,247,0.94);
+      color: var(--forest-green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      cursor: pointer;
+      z-index: 5;
+      box-shadow: 0 10px 25px rgba(30,63,32,0.15);
+      transition: var(--transition);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      }
+      .gallery-scroll-btn.next { right: -12px; }
+      .gallery-scroll-btn.prev { left: -12px; }
+      .gallery-scroll-btn:hover { background: var(--forest-green); color: #fff; }
+      .gallery-scroll-btn:active { transform: translateY(-50%) scale(0.95); }
+
+      @media(max-width: 1100px) {
+      .gallery-slide { flex: 0 0 calc(50% - 0.75rem); }
+      }
+      @media(max-width: 800px) {
+      .gallery-scroll-btn.next { right: 4px; }
+      .gallery-scroll-btn.prev { left: 4px; }
+      }
+      @media(max-width: 560px) {
+      .gallery-slider { gap: 1rem; padding-right: 0.5rem; }
+      .gallery-slide { flex: 0 0 86%; min-width: 86%; height: 300px; }
+      .gallery-scroll-btn { width: 46px; height: 46px; top: 40%; }
+      }
  
       .ehc-lightbox { display: none; position: fixed; inset: 0; background: rgba(10,20,12,0.92); z-index: 3000; align-items: center; justify-content: center; padding: 2rem; cursor: zoom-out; }
       .ehc-lightbox.active { display: flex; }
@@ -1359,6 +1501,7 @@
           <li><a class="nav-link" href="#focus">Programs</a></li>
           <li><a class="nav-link" href="#sixe">Framework</a></li>
           <li><a class="nav-link" href="#sdgs">SDGs</a></li>
+          <li><a class="nav-link" href="#impact-numbers">Impact</a></li>
           <li><a class="nav-link" href="#partners">Partners</a></li>
           <li><a class="nav-link" href="#team">Team</a></li>
           <li><a class="nav-link" href="#blog">Updates</a></li>
@@ -1879,23 +2022,78 @@
         <span class="eyebrow-white">Field Note</span>
  
         <p>
-          Eastern Himalayas Collective is growing from the ground up, working
-          closely with people and communities to build a more sustainable and
-          resilient future for the Eastern Himalayas.
- 
-          Our work is taking shape around natural and organic farming,
-          sustainable livelihoods, biodiversity, climate resilience, and stronger
-          rural communities. We are connecting with local people, building
-          partnerships, learning from the landscape, and turning those
-          conversations into practical action.
- 
-          We are at the inception of our journey and its already started. Our
-          focus today is simple, we listen, work together, act locally, and build
-          something that can create lasting change.
- 
-          This is where our journey begins..
+          Eastern Himalayas Collective is a young organisation growing from the ground up, working closely with people and communities to build a more sustainable and resilient future for the Eastern Himalayas.
+
+Our journey has already begun with action on the ground. We have initiated community-based activities, including a plantation drive with local students and communities, and have started working with farmers and local stakeholders around natural and organic farming. We are also building connections with agricultural institutions, local departments, communities and other partners to bring knowledge and practical solutions closer to the people.
+
+Our work is taking shape around sustainable agriculture, rural livelihoods, biodiversity, climate resilience and stronger rural communities. Each programme is also helping us understand the realities, needs and possibilities of the landscapes and communities we work with.
+
+We are still at an early stage, but we are no longer only preparing to begin—we have begun. We are learning through every field activity, listening to local voices, building partnerships and turning those conversations into practical action.
+
+Our work is rooted in the belief that lasting change grows through local participation, practical action and a deeper understanding of the people and landscapes of the Eastern Himalayas.
         </p>
  
+      </div>
+    </section>
+
+    <!-- =========================================================
+         OUR IMPACT (NUMBERS)   [NEW]
+         EDIT THE NUMBERS: change only data-target="..." on each
+         card. data-suffix="+" adds a plus sign after the number.
+         ========================================================= -->
+    <section class="section-padding impact-numbers-section" id="impact-numbers">
+      <div class="impact-numbers-inner">
+
+        <div class="section-title-wrap">
+          <span class="section-subtitle">Our Impact</span>
+          <h2 class="section-main-title">Reach on the Ground</h2>
+          <p class="section-desc">
+            A snapshot of the communities and landscapes we have worked with so far.
+          </p>
+        </div>
+
+        <div class="impact-stats-grid">
+
+          <div class="impact-stat-card glass-dark">
+            <div class="impact-stat-icon"><i class="fa-solid fa-house-chimney"></i></div>
+            <div class="impact-stat-number">
+              <span class="impact-count" data-target="5" data-suffix="+">0</span>
+            </div>
+            <div class="impact-stat-label">Villages Reached</div>
+            <p class="impact-stat-note">Across Assam &amp; Arunachal Pradesh</p>
+          </div>
+
+          <div class="impact-stat-card glass-dark">
+            <div class="impact-stat-icon"><i class="fa-solid fa-people-group"></i></div>
+            <div class="impact-stat-number">
+              <span class="impact-count" data-target="500" data-suffix="+">0</span>
+            </div>
+            <div class="impact-stat-label">Individuals Reached</div>
+            <p class="impact-stat-note">Farmers, women, youth &amp; students</p>
+          </div>
+
+          <div class="impact-stat-card glass-dark">
+            <div class="impact-stat-icon"><i class="fa-solid fa-seedling"></i></div>
+            <div class="impact-stat-number">
+              <span class="impact-count" data-target="50" data-suffix="+">0</span>
+            </div>
+            <div class="impact-stat-label">Acres of Land Touched</div>
+            <p class="impact-stat-note">Under natural &amp; organic practices</p>
+          </div>
+
+          <div class="impact-stat-card glass-dark">
+            <div class="impact-stat-icon"><i class="fa-solid fa-tree"></i></div>
+            <div class="impact-stat-number">
+              <span class="impact-count" data-target="1000" data-suffix="+">0</span>
+            </div>
+            <div class="impact-stat-label">Trees Planted</div>
+            <p class="impact-stat-note">With local students &amp; communities</p>
+          </div>
+
+          <!-- TO ADD ANOTHER CARD: copy one whole <div class="impact-stat-card"> block above -->
+
+        </div>
+
       </div>
     </section>
  
@@ -2134,7 +2332,7 @@
  
             <div class="team-photo-wrap">
               <img
-                src="https://blogger.googleusercontent.com/img/a/AVvXsEg9HDXjpef0RrhginkNUs3f1DT1YoPo9246DnWSbSFlDdLjkezXSOohc_xsyuIVPD_GXK6w27qfUIdIJhajucjLPmpoUshTc52mh7yNIUQK4TLkmSAtFylgFKyTvlbWTyR2Je42j-MaIac2PIRB_7CEgJKXUpeq59MP3DyfJ6pGkqL25AjOd1dd-NsfoGMd"
+                src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhipY8vhErmN-q2ilSpyWBuu5XhDAwq7o7iDtWOOQf1BjKYGjC8LKnu7v-gsSVHS6elO-eW4X65DwukbJDfL2DmdwHxpR9lf-i-X5DxTbWxq8BrZzWpNQ4Y_PkGKmMhr9sEYTxwbFfx-LJBkoaKdW7j0Uoh2tneC7-AVuhFaIIEREYDTwqZJ6S3ftjhPHbZ/s320/61197.png"
                 alt="Team member"
               />
             </div>
@@ -2294,14 +2492,14 @@
             <div class="team-card-body">
  
               <h3 class="team-name">
-Basanta Gogoi              </h3>
+Basanta K Gogoi              </h3>
  
               <span class="team-role">
                 Program coordinator
               </span>
  
               <p class="team-intro">
-               Basanta Gogoi is a teacher, craftsman, and artist with a deep knowledge of art and craft. As Program Coordinator, he supports EHCF’s field activities, community engagement, and program implementation.
+               Basanta Kumar Gogoi is a teacher, craftsman, and artist with a deep knowledge of art and craft. As Program Coordinator, he supports EHCF’s field activities, community engagement, and program implementation.
 
               </p>
  
@@ -2650,7 +2848,7 @@ Basanta Gogoi              </h3>
            HELPERS
            ========================================================= */
         function getText(value) {
-          return value && value.t?value.t : "";
+          return value && value.$t ? value.$t : "";
         }
  
         function getContent(entry) {
@@ -2713,6 +2911,10 @@ Basanta Gogoi              </h3>
       //]]>
     </script>
  
+    <!-- =========================================================
+         THE LANDSCAPE WE WORK IN — horizontal slider   [MODIFIED]
+         To add a photo: copy one <div class="gallery-slide"> block.
+         ========================================================= -->
     <section class="section-padding" id="gallery">
  
       <div class="section-title-wrap">
@@ -2729,71 +2931,85 @@ Basanta Gogoi              </h3>
  
       </div>
  
-      <div class="gallery-masonry" id="galleryMasonry">
- 
-        <div
-          class="gallery-item"
-          onclick="ehcOpenLightbox(this)"
-        >
- 
-          <img
-            alt="Green terraced fields below the Eastern Himalayan hills, Arunachal Pradesh"
-            src="https://images.unsplash.com/photo-1589808015717-a626de258af0?auto=format&fit=crop&q=80&w=700"
-          />
- 
-          <div class="gallery-overlay">
- 
-            <span class="gallery-text">
-              Terraced Fields
-              <small>Arunachal Pradesh</small>
-            </span>
- 
+      <div class="gallery-slider-wrap">
+
+        <div class="gallery-slider" id="gallerySlider">
+
+          <div class="gallery-slide" onclick="ehcOpenLightbox(this)">
+            <img
+              alt="Green terraced fields below the Eastern Himalayan hills, Arunachal Pradesh"
+              src="https://images.unsplash.com/photo-1589808015717-a626de258af0?auto=format&fit=crop&q=80&w=900"
+            />
+            <div class="gallery-overlay">
+              <span class="gallery-text">
+                Terraced Fields
+                <small>Arunachal Pradesh</small>
+              </span>
+            </div>
           </div>
- 
-        </div>
- 
-        <div
-          class="gallery-item"
-          onclick="ehcOpenLightbox(this)"
-        >
- 
-          <img
-            alt="Eastern Himalayan mountain range, Arunachal Pradesh"
-            src="https://images.unsplash.com/photo-1626761627604-f27d98885f4b?auto=format&fit=crop&q=80&w=700"
-          />
- 
-          <div class="gallery-overlay">
- 
-            <span class="gallery-text">
-              Eastern Himalayan Terrain
-              <small>Natural Landscape</small>
-            </span>
- 
+
+          <div class="gallery-slide" onclick="ehcOpenLightbox(this)">
+            <img
+              alt="Eastern Himalayan mountain range, Arunachal Pradesh"
+              src="https://images.unsplash.com/photo-1626761627604-f27d98885f4b?auto=format&fit=crop&q=80&w=900"
+            />
+            <div class="gallery-overlay">
+              <span class="gallery-text">
+                Eastern Himalayan Terrain
+                <small>Natural Landscape</small>
+              </span>
+            </div>
           </div>
- 
-        </div>
- 
-        <div
-          class="gallery-item"
-          onclick="ehcOpenLightbox(this)"
-        >
- 
-          <img
-            alt="Women harvesting tea leaves, Bongaigaon, Assam"
-            src="https://images.unsplash.com/photo-1758390285674-f1d55b9d1312?auto=format&fit=crop&q=80&w=700"
-          />
- 
-          <div class="gallery-overlay">
- 
-            <span class="gallery-text">
-              Women in Agriculture
-              <small>Assam Tea Gardens</small>
-            </span>
- 
+
+          <div class="gallery-slide" onclick="ehcOpenLightbox(this)">
+            <img
+              alt="Women harvesting tea leaves, Bongaigaon, Assam"
+              src="https://images.unsplash.com/photo-1758390285674-f1d55b9d1312?auto=format&fit=crop&q=80&w=900"
+            />
+            <div class="gallery-overlay">
+              <span class="gallery-text">
+                Women in Agriculture
+                <small>Assam Tea Gardens</small>
+              </span>
+            </div>
           </div>
- 
+
+          <div class="gallery-slide" onclick="ehcOpenLightbox(this)">
+            <img
+              alt="Wetlands of Assam"
+              src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhpfruMZq1FkoUedGJojm9Sn83FKWbuG2Cgi0vGr-2CToxGXf__74Rs1c6CAcUDv-XY9pBnN1-PqlL1pBPi5rx7DZBHxSlYjz3GYCQG8vQiUQzmoOLn6QwGC8orNgvJ5Eklc_MCX7qp9gt6_3RJuKSGoHHEmaaXkk9vl6ilCTqM-hssxof53auFaiV2CCgF/s320/42cced31-75bf-4715-85c3-bb1c65fa96f8-1_all_619.jpg"
+            />
+            <div class="gallery-overlay">
+              <span class="gallery-text">
+                Wetlands
+                <small>Assam</small>
+              </span>
+            </div>
+          </div>
+
+          <!-- TO ADD A PHOTO: copy a whole <div class="gallery-slide"> ... </div>
+               block above, paste it here, and change the image link + text. -->
+
         </div>
- 
+
+        <button
+          class="gallery-scroll-btn prev"
+          type="button"
+          aria-label="View previous photos"
+          onclick="scrollGallery(-1)"
+        >
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+
+        <button
+          class="gallery-scroll-btn next"
+          type="button"
+          aria-label="View more photos"
+          onclick="scrollGallery(1)"
+        >
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+
       </div>
  
       <div
@@ -2873,6 +3089,78 @@ Basanta Gogoi              </h3>
           behavior: "smooth"
         });
       }
+
+      /*
+       * LANDSCAPE GALLERY SCROLLER   [NEW]
+       */
+
+      function scrollGallery(direction) {
+        direction = direction || 1;
+
+        var slider = document.getElementById("gallerySlider");
+
+        if (!slider) return;
+
+        var firstCard = slider.querySelector(".gallery-slide");
+
+        if (!firstCard) return;
+
+        var cardWidth = firstCard.getBoundingClientRect().width;
+        var gap = 24;
+
+        slider.scrollBy({
+          left: (cardWidth + gap) * direction,
+          behavior: "smooth"
+        });
+      }
+
+      /*
+       * IMPACT NUMBERS — count up when scrolled into view   [NEW]
+       */
+
+      (function () {
+        var counters = document.querySelectorAll(".impact-count");
+
+        if (!counters.length) return;
+
+        function format(n) { return n.toLocaleString("en-IN"); }
+
+        function animate(el) {
+          var target = parseInt(el.getAttribute("data-target"), 10) || 0;
+          var suffix = el.getAttribute("data-suffix") || "";
+          var duration = 2000;
+          var start = null;
+
+          function step(ts) {
+            if (!start) start = ts;
+            var p = Math.min((ts - start) / duration, 1);
+            var eased = 1 - Math.pow(1 - p, 3);
+            el.innerHTML = format(Math.round(target * eased)) +
+              (p === 1 && suffix ? '<span class="impact-suffix">' + suffix + '</span>' : "");
+            if (p < 1) requestAnimationFrame(step);
+          }
+
+          requestAnimationFrame(step);
+        }
+
+        if ("IntersectionObserver" in window) {
+          var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                animate(entry.target);
+                io.unobserve(entry.target);
+              }
+            });
+          }, { threshold: 0.4 });
+
+          counters.forEach(function (c) { io.observe(c); });
+        } else {
+          counters.forEach(function (c) {
+            c.innerHTML = format(parseInt(c.getAttribute("data-target"), 10) || 0) +
+              (c.getAttribute("data-suffix") || "");
+          });
+        }
+      })();
  
       //]]>
     </script>
@@ -3336,5 +3624,3 @@ Basanta Gogoi              </h3>
  
   </body>
 </html>
-
-
